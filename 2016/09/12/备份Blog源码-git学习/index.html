@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>备份Blog源码--git学习 | My&#39; Blog</title>
+  <title>备份Blog源码--git学习 | JadeStrong&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在使用Hexo进行博客部署时，仅将生成的静态博客文件上传到了github中，通过GitHub Page进行展示，但是项目的源码都是存储到本地的，所以这样做不是很安全，完全有可能发生源码丢失这种问题，所以在这里建立github分支来存储源码。
 
@@ -13,12 +13,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="备份Blog源码--git学习">
 <meta property="og:url" content="http://jadestrong.com/2016/09/12/备份Blog源码-git学习/index.html">
-<meta property="og:site_name" content="My' Blog">
+<meta property="og:site_name" content="JadeStrong' Blog">
 <meta property="og:description" content="在使用Hexo进行博客部署时，仅将生成的静态博客文件上传到了github中，通过GitHub Page进行展示，但是项目的源码都是存储到本地的，所以这样做不是很安全，完全有可能发生源码丢失这种问题，所以在这里建立github分支来存储源码。
 
 命令如下：
 12345git init  // 默认这个文件夹是没有进行git初始化的git remote add origin &amp;#123;your-g">
-<meta property="og:updated_time" content="2016-09-12T10:41:18.780Z">
+<meta property="og:updated_time" content="2016-09-12T10:49:54.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="备份Blog源码--git学习">
 <meta name="twitter:description" content="在使用Hexo进行博客部署时，仅将生成的静态博客文件上传到了github中，通过GitHub Page进行展示，但是项目的源码都是存储到本地的，所以这样做不是很安全，完全有可能发生源码丢失这种问题，所以在这里建立github分支来存储源码。
@@ -26,7 +26,7 @@
 命令如下：
 12345git init  // 默认这个文件夹是没有进行git初始化的git remote add origin &amp;#123;your-g">
   
-    <link rel="alternative" href="/atom.xml" title="My&#39; Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="JadeStrong&#39; Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="//favicon.png">
@@ -124,7 +124,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a>
 					</div>
 				</section>
 				
@@ -246,8 +246,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git init  // 默认这个文件夹是没有进行git初始化的</div><div class="line"></div><div class="line">git remote add origin &#123;your-git-repo-url&#125;  //这个是添加一个新的远程仓库</div><div class="line">git checkout -b source  //这是检出一个分支么？</div><div class="line">git push origin source  //这个是将谁推给谁呢，目前看可能是origin -&gt; source？</div></pre></td></tr></table></figure>
 <p>在这里曾出现一个问题：<code>error: src refspec {branch name,如source} does not match any</code>:</p>
 <blockquote>
-<p>这个是因为推送的目录中没有文件，应该先将当前目录的文件都添加上去：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &apos;some thing&apos;</div><div class="line">git push origin source //即可成功</div></pre></td></tr></table></figure></p>
+<p>这个是因为推送的目录中没有文件，应该先将当前目录的文件都添加上去：</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &apos;some thing&apos;</div><div class="line">git push origin source //即可成功</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -256,6 +257,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/09/12/React之Alt架构分析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          React之Alt架构分析
+        
+      </div>
+    </a>
   
   
     <a href="/2016/08/09/我的第一篇在线博客/" id="article-nav-older" class="article-nav-link-wrap">

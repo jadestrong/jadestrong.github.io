@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>My&#39; Blog</title>
+  <title>JadeStrong&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="学习就是一点一点的积累，重在持之以恒，切忌眼高手低！">
 <meta property="og:type" content="website">
-<meta property="og:title" content="My' Blog">
+<meta property="og:title" content="JadeStrong' Blog">
 <meta property="og:url" content="http://jadestrong.com/index.html">
-<meta property="og:site_name" content="My' Blog">
+<meta property="og:site_name" content="JadeStrong' Blog">
 <meta property="og:description" content="学习就是一点一点的积累，重在持之以恒，切忌眼高手低！">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My' Blog">
+<meta name="twitter:title" content="JadeStrong' Blog">
 <meta name="twitter:description" content="学习就是一点一点的积累，重在持之以恒，切忌眼高手低！">
   
-    <link rel="alternative" href="/atom.xml" title="My&#39; Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="JadeStrong&#39; Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="//favicon.png">
@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a>
 					</div>
 				</section>
 				
@@ -198,6 +198,293 @@
 
       <div class="body-wrap">
   
+    <article id="post-配置Emacs为Markdown编辑器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/13/配置Emacs为Markdown编辑器/" class="article-date">
+  	<time datetime="2016-09-13T01:14:00.705Z" itemprop="datePublished">2016-09-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<table>
+<tbody>
+<tr class="odd">
+<td>title: 配置Emacs为Markdown编辑器</td>
+</tr>
+<tr class="even">
+<td>date: 2016-09-13 08:51:08</td>
+</tr>
+<tr class="odd">
+<td>tags: markdown emacs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="配置markdown编辑器">配置Markdown编辑器</h2>
+<p>首先是安装<code>markdown-mode</code>,这个可以参考该文档； 然后，如果本地没有配置<code>markdown</code>命令来将<code>.md</code>文件转换成<code>.html</code>文件的话，会爆出<code>bash error: no markdown commond</code>等错误，此时需要在本地安装一个markdown编译器，例如pandoc(由于该编译器的原生命令为<code>pandoc</code>，所以还需要配置需要的markdown命令),如下配置:</p>
+<pre><code>//创建一个markdown名称的文件，不要文件名
+touch markdown
+//编辑它,此处$1是占位符，用于需要处理的文件
+pandoc -f markdown -t html -s --mathjax --highlight-style pygments --from markdown-yaml_metadata_block $1
+//然后将该文件放到/usr/bin目录中
+su -c &#39;mv markdown /usr/bin&#39;
+//并为它添加可执行权限
+su -c &#39;chmod a+x /usr/bin/markdown</code></pre>
+<p>经过上面的配置，现在应该已经可以使用emacs或调用浏览器来预览md文件了。</p>
+<p>另外，我们还可以使用emacs支持的eww浏览器来在emacs中实现预览：<code>C+c C+c l</code>即可。</p>
+<p>此时，并不能实现实时预览，只有我们按下保存按钮之后，才能后更新预览，在这可以配置emacs的自动保存，需要下载<code>auto-save.el</code>文件：https://github.com/manateelazycat/deepin-emacs/blob/master/site-lisp/extensions/lazycat/auto-save.el</p>
+<p>并修改<code>.emacs</code>文件,该文件存放在<code>~/</code>路径下，如果没有可以创建，另外也可以修改<code>~/.emacs.d/init.el</code>文件，这两个文件都是等价的，emacs启动时会读取这些文件并加载定义的插件。 文件配置如下：</p>
+<pre><code>//这一句是必须的，用于指定扩展插件的路径
+(add-to-list &#39;load-path (expand-file-name {path to package directory}  user-emacs-directory))
+//下面是加载模块的代码
+(require &#39;auto-save)            ;; 加载自动保存模块
+
+(auto-save-enable)              ;; 开启自动保存功能
+(setq auto-save-slient t)       ;; 自动保存的时候静悄悄的， 不要打扰我
+</code></pre>
+<p>至此，已经配置好了自动保存功能，当编辑markdown文件时，可以实现自动保存并刷新展示。</p>
+</body>
+</html>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-配置Emacs为Markdown编辑器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/13/配置Emacs为Markdown编辑器/" class="article-date">
+  	<time datetime="2016-09-13T00:51:08.000Z" itemprop="datePublished">2016-09-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/13/配置Emacs为Markdown编辑器/">配置Emacs为Markdown编辑器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="配置Markdown编辑器"><a href="#配置Markdown编辑器" class="headerlink" title="配置Markdown编辑器"></a>配置Markdown编辑器</h2><p>首先是安装<code>markdown-mode</code>,这个可以参考该文档；<br>然后，如果本地没有配置<code>markdown</code>命令来将<code>.md</code>文件转换成<code>.html</code>文件的话，会爆出<code>bash error: no markdown commond</code>等错误，此时需要在本地安装一个markdown编译器，例如pandoc(由于该编译器的原生命令为<code>pandoc</code>，所以还需要配置需要的markdown命令),如下配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//创建一个markdown名称的文件，不要文件名</div><div class="line">touch markdown</div><div class="line">//编辑它,此处$1是占位符，用于需要处理的文件</div><div class="line">pandoc -f markdown -t html -s --mathjax --highlight-style pygments --from markdown-yaml_metadata_block $1</div><div class="line">//然后将该文件放到/usr/bin目录中</div><div class="line">su -c &apos;mv markdown /usr/bin&apos;</div><div class="line">//并为它添加可执行权限</div><div class="line">su -c &apos;chmod a+x /usr/bin/markdown</div></pre></td></tr></table></figure></p>
+<p>经过上面的配置，现在应该已经可以使用emacs或调用浏览器来预览md文件了。</p>
+<p>另外，我们还可以使用emacs支持的eww浏览器来在emacs中实现预览：<code>C+c C+c l</code>即可。</p>
+<p>此时，并不能实现实时预览，只有我们按下保存按钮之后，才能后更新预览，在这可以配置emacs的自动保存，需要下载<code>auto-save.el</code>文件：<a href="https://github.com/manateelazycat/deepin-emacs/blob/master/site-lisp/extensions/lazycat/auto-save.el" target="_blank" rel="external">https://github.com/manateelazycat/deepin-emacs/blob/master/site-lisp/extensions/lazycat/auto-save.el</a></p>
+<p>并修改<code>.emacs</code>文件,该文件存放在<code>~/</code>路径下，如果没有可以创建，另外也可以修改<code>~/.emacs.d/init.el</code>文件，这两个文件都是等价的，emacs启动时会读取这些文件并加载定义的插件。<br>文件配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//这一句是必须的，用于指定扩展插件的路径</div><div class="line">(add-to-list &apos;load-path (expand-file-name &#123;path to package directory&#125;  user-emacs-directory))</div><div class="line">//下面是加载模块的代码</div><div class="line">(require &apos;auto-save)            ;; 加载自动保存模块</div><div class="line"></div><div class="line">(auto-save-enable)              ;; 开启自动保存功能</div><div class="line">(setq auto-save-slient t)       ;; 自动保存的时候静悄悄的， 不要打扰我</div></pre></td></tr></table></figure>
+<p>至此，已经配置好了自动保存功能，当编辑markdown文件时，可以实现自动保存并刷新展示。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown-emacs/">markdown emacs</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-React之Alt架构分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/13/React之Alt架构分析/" class="article-date">
+  	<time datetime="2016-09-12T16:38:32.714Z" itemprop="datePublished">2016-09-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<table>
+<tbody>
+<tr class="odd">
+<td>title: React之Alt架构分析</td>
+</tr>
+<tr class="even">
+<td>date: 2016-09-12 21:58:53</td>
+</tr>
+<tr class="odd">
+<td>tags: react、alt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="section"></h2>
+<pre><code>function test() {
+    console.log(&#39;hello world&#39;);
+}</code></pre>
+<h2 id="hello-world">Hello world</h2>
+<blockquote>
+<p>这是一个黛色的区域,看看自动保存没有</p>
+</blockquote>
+</body>
+</html>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-React之Alt架构分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/12/React之Alt架构分析/" class="article-date">
+  	<time datetime="2016-09-12T13:58:53.000Z" itemprop="datePublished">2016-09-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/12/React之Alt架构分析/">React之Alt架构分析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>## </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function test() &#123;</div><div class="line">	console.log(&apos;hello world&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h2><blockquote>
+<p>这是一个黛色的区域,看看自动保存没有 </p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react、alt/">react、alt</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-备份Blog源码-git学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -231,8 +518,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git init  // 默认这个文件夹是没有进行git初始化的</div><div class="line"></div><div class="line">git remote add origin &#123;your-git-repo-url&#125;  //这个是添加一个新的远程仓库</div><div class="line">git checkout -b source  //这是检出一个分支么？</div><div class="line">git push origin source  //这个是将谁推给谁呢，目前看可能是origin -&gt; source？</div></pre></td></tr></table></figure>
 <p>在这里曾出现一个问题：<code>error: src refspec {branch name,如source} does not match any</code>:</p>
 <blockquote>
-<p>这个是因为推送的目录中没有文件，应该先将当前目录的文件都添加上去：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &apos;some thing&apos;</div><div class="line">git push origin source //即可成功</div></pre></td></tr></table></figure></p>
+<p>这个是因为推送的目录中没有文件，应该先将当前目录的文件都添加上去：</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &apos;some thing&apos;</div><div class="line">git push origin source //即可成功</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -287,7 +575,7 @@
       
         <p>##难道就这么写吗</p>
 <p>搭建自己的博客，还得卖域名啊，这么贵。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function () &#123;</div><div class="line">    console.log(&apos;Hello World!&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function () &#123;</div><div class="line">    console.log(&apos;Hello World!&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
