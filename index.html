@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a>
+						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a>
 					</div>
 				</section>
 				
@@ -198,11 +198,73 @@
 
       <div class="body-wrap">
   
-    <article id="post-配置Emacs为Markdown编辑器" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Git的基本指令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/13/配置Emacs为Markdown编辑器/" class="article-date">
-  	<time datetime="2016-09-13T01:14:00.705Z" itemprop="datePublished">2016-09-13</time>
+      <a href="/2016/09/14/Git的基本指令/" class="article-date">
+  	<time datetime="2016-09-14T12:51:43.000Z" itemprop="datePublished">2016-09-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/14/Git的基本指令/">Git的基本指令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Git的基本指令之远程分支的拉取和本地分支的提交"><a href="#Git的基本指令之远程分支的拉取和本地分支的提交" class="headerlink" title="Git的基本指令之远程分支的拉取和本地分支的提交"></a>Git的基本指令之远程分支的拉取和本地分支的提交</h2><p>当我们在本地拥有多个分支时，需要知道我们当前是在哪一个分支，此时使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git branch -a</div><div class="line">//输出如下</div><div class="line">* source</div><div class="line">  remotes/origin/master</div><div class="line">  remotes/origin/source</div></pre></td></tr></table></figure></p>
+<p>上面的输出显示，在远程端拥有两个分支，其一是master，这个是我们在创建Repo时生成的；<br>之后，我们又在远程端创建了一个source分支，在本例中是存放的Blog项目的源码，而master分支中则是我们博客的静态文件。</p>
+<p>所以，当我们创建了新的博客并部署之后，其实是将文件部署到了master的分支中，而对源码的备份则需要将代码push到source分支。</p>
+<p>而在远程端进行操作之后，又如何将远程分支同步到本地分支呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin source // 将远程指定分支source拉取到本地当前分支</div></pre></td></tr></table></figure></p>
+<p>使用pull会拉取并合并，而使用fetch则只会拉取，然后需要使用merge来合并。</p>
+<p>当将本地代码提交时，如过远程存在多个分支的话，也需要指定提交到那个分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin source // 将本地分支提交到远程分支</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/13/hello-world/" class="article-date">
+  	<time datetime="2016-09-13T15:25:03.019Z" itemprop="datePublished">2016-09-13</time>
 </a>
     </div>
   
@@ -221,44 +283,66 @@
   <meta name="generator" content="pandoc">
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
 </head>
 <body>
 <table>
 <tbody>
 <tr class="odd">
-<td>title: 配置Emacs为Markdown编辑器</td>
-</tr>
-<tr class="even">
-<td>date: 2016-09-13 08:51:08</td>
-</tr>
-<tr class="odd">
-<td>tags: markdown emacs</td>
+<td>title: Hello World</td>
 </tr>
 </tbody>
 </table>
-<h2 id="配置markdown编辑器">配置Markdown编辑器</h2>
-<p>首先是安装<code>markdown-mode</code>,这个可以参考该文档； 然后，如果本地没有配置<code>markdown</code>命令来将<code>.md</code>文件转换成<code>.html</code>文件的话，会爆出<code>bash error: no markdown commond</code>等错误，此时需要在本地安装一个markdown编译器，例如pandoc(由于该编译器的原生命令为<code>pandoc</code>，所以还需要配置需要的markdown命令),如下配置:</p>
-<pre><code>//创建一个markdown名称的文件，不要文件名
-touch markdown
-//编辑它,此处$1是占位符，用于需要处理的文件
-pandoc -f markdown -t html -s --mathjax --highlight-style pygments --from markdown-yaml_metadata_block $1
-//然后将该文件放到/usr/bin目录中
-su -c &#39;mv markdown /usr/bin&#39;
-//并为它添加可执行权限
-su -c &#39;chmod a+x /usr/bin/markdown</code></pre>
-<p>经过上面的配置，现在应该已经可以使用emacs或调用浏览器来预览md文件了。</p>
-<p>另外，我们还可以使用emacs支持的eww浏览器来在emacs中实现预览：<code>C+c C+c l</code>即可。</p>
-<p>此时，并不能实现实时预览，只有我们按下保存按钮之后，才能后更新预览，在这可以配置emacs的自动保存，需要下载<code>auto-save.el</code>文件：https://github.com/manateelazycat/deepin-emacs/blob/master/site-lisp/extensions/lazycat/auto-save.el</p>
-<p>并修改<code>.emacs</code>文件,该文件存放在<code>~/</code>路径下，如果没有可以创建，另外也可以修改<code>~/.emacs.d/init.el</code>文件，这两个文件都是等价的，emacs启动时会读取这些文件并加载定义的插件。 文件配置如下：</p>
-<pre><code>//这一句是必须的，用于指定扩展插件的路径
-(add-to-list &#39;load-path (expand-file-name {path to package directory}  user-emacs-directory))
-//下面是加载模块的代码
-(require &#39;auto-save)            ;; 加载自动保存模块
-
-(auto-save-enable)              ;; 开启自动保存功能
-(setq auto-save-slient t)       ;; 自动保存的时候静悄悄的， 不要打扰我
-</code></pre>
-<p>至此，已经配置好了自动保存功能，当编辑markdown文件时，可以实现自动保存并刷新展示。</p>
+<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexo</span> new <span class="st">&quot;My New Post&quot;</span></code></pre></div>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexo</span> server</code></pre></div>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexo</span> generate</code></pre></div>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexo</span> deploy</code></pre></div>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 </body>
 </html>
 
@@ -353,80 +437,6 @@ su -c &#39;chmod a+x /usr/bin/markdown</code></pre>
     <article id="post-React之Alt架构分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/13/React之Alt架构分析/" class="article-date">
-  	<time datetime="2016-09-12T16:38:32.714Z" itemprop="datePublished">2016-09-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <meta name="generator" content="pandoc">
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-</head>
-<body>
-<table>
-<tbody>
-<tr class="odd">
-<td>title: React之Alt架构分析</td>
-</tr>
-<tr class="even">
-<td>date: 2016-09-12 21:58:53</td>
-</tr>
-<tr class="odd">
-<td>tags: react、alt</td>
-</tr>
-</tbody>
-</table>
-<h2 id="section"></h2>
-<pre><code>function test() {
-    console.log(&#39;hello world&#39;);
-}</code></pre>
-<h2 id="hello-world">Hello world</h2>
-<blockquote>
-<p>这是一个黛色的区域,看看自动保存没有</p>
-</blockquote>
-</body>
-</html>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-React之Alt架构分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
       <a href="/2016/09/12/React之Alt架构分析/" class="article-date">
   	<time datetime="2016-09-12T13:58:53.000Z" itemprop="datePublished">2016-09-12</time>
 </a>
@@ -450,11 +460,18 @@ su -c &#39;chmod a+x /usr/bin/markdown</code></pre>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>## </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function test() &#123;</div><div class="line">	console.log(&apos;hello world&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h2><blockquote>
-<p>这是一个黛色的区域,看看自动保存没有 </p>
-</blockquote>
+        <h2 id="React之Alt架构分析"><a href="#React之Alt架构分析" class="headerlink" title="React之Alt架构分析"></a>React之Alt架构分析</h2><p>在使用Alt时，首先需要实例化一个alt实例，将其定义为一个单例模块，然后对其做一些必要的配置，然后就可以将它导出，当在项目中需要时可以执行引入，而不用每次都实例化了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import Alt from &apos;alt&apos;;</div><div class="line">import makeFinalStore from &apos;alt-utils/lib/makeFinalStore&apos;;</div><div class="line"></div><div class="line">class Flux extends Alt &#123;</div><div class="line">	constructor(config) &#123;</div><div class="line">		super(config);</div><div class="line">		this.FinalStore = makeFinalStore(this);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const flux = new Flux();</div><div class="line"></div><div class="line">export default flux;</div></pre></td></tr></table></figure></p>
+<p>在上面我们还使用了<code>alt-utils</code>的makeFinalStore,这个是用来监视所有的store都修改完毕之后，可以做最后处理。 ？</p>
+<p>当定义好了alt实例，下面是需要将它配置到React项目中去，需要在Provider中配置，首先介绍下Provider的概念，这是Alt架构的两个概念之一，另一个是connect负责将action等连接到组件中去。至于Provider更多的是一个可扩展接口，其实可以将其直接嵌入到组件中，但是区分开来更加容易定制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import AltContainer from &apos;alt-container&apos;;</div><div class="line">import chromeDebug from &apos;alt-utils/lib/chromeDebug&apos;;</div><div class="line">import alt from &apos;../../libs/alt&apos;;</div><div class="line">import setup from &apos;./setup&apos;;</div><div class="line"></div><div class="line">setup(alt); //这个用来对alt做一些通用的配置</div><div class="line"></div><div class="line">chromeDebug(alt); //这个是一个debug组件，结合chrome插件调试alt</div><div class="line"></div><div class="line">React.Pref = require(&apos;react-addons-perf&apos;); // 这个好像是性能分析工具</div><div class="line"></div><div class="line">export default (&#123;children&#125;) =&gt;</div><div class="line">	&lt;AltContainer flux=&#123;alt&#125;&gt;</div><div class="line">		&#123;children&#125;</div><div class="line">	&lt;/AltContainer&gt;</div></pre></td></tr></table></figure></p>
+<p>在导出部分，使用了<code>AltContainer</code>，这个东西可以为子组件传入<code>this.props</code>属性信息，可以分开定义，也可以使用我们定义的<code>alt</code>。</p>
+<p>在传入alt之前，我们需要将store绑定到alt中，这个操作就是在<code>setup.js</code>中做的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import NoteStore from &apos;../../stores/NoteStore&apos;;</div><div class="line"></div><div class="line">export default alt =&gt; &#123;</div><div class="line">	alt.addStore(&apos;NoteStore&apos;, NoteStore);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样就会将NoteStore通过alt实例，在AltContainer中传入{children}中，在组件中可以通过<code>this.props</code>来访问。</p>
+<p><strong>注意：</strong>此处在参数传递中还有困惑，即：是将NoteStore直接传入了组件的<code>props</code>属性，还是通过<code>connect</code>函数来做的？ 在后面看来这些都是在connect中做的处理。这一点在主组件文件<code>app.jsx</code>中也可以看，组件App是作为参数传入了connect函数，而最后导出的是connect函数最终执行的结果，即将修订后的App组件返回并在后续进行渲染</p>
+<p>分析下connect函数所起的作用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line"></div><div class="line">export default (state, actions) =&gt; &#123;</div><div class="line">	if (typeof state === &apos;function&apos; || </div><div class="line">		(typeof state === &apos;object&apos; &amp;&amp; Object.keys(state).length)) &#123;</div><div class="line">		return target =&gt; connect(state, actions, target);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return target =&gt; props =&gt;(</div><div class="line">		&lt;target &#123;...Object.assign(&#123;&#125;, props, actions)&#125; /&gt;</div><div class="line">	);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function connect(state = () =&gt; &#123;&#125;, actions = &#123;&#125;, target) &#123;</div><div class="line">	class Connect extends React.Component &#123;</div><div class="line">		constructor() &#123;</div><div class="line">			super();</div><div class="line">			this.handleChange = this.handleChange.bind(this);</div><div class="line">		&#125;</div><div class="line">		componentDidMount() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			flux.FinalStore.listen(this.handleChange);</div><div class="line">		&#125;</div><div class="line">		componentWillUnMount() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			flux.FinalStore.unlisten(this.handleChange);</div><div class="line">		&#125;</div><div class="line">		render() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			const stores = flux.stores;</div><div class="line">			const composedStores = composeStores(stores);</div><div class="line"></div><div class="line">			return React.createElement(target, </div><div class="line">				&#123;...Object.assign(&#123;&#125;, this.props, state(composedStores), actions)&#125;);</div><div class="line">		&#125;</div><div class="line">		handleChange() &#123;</div><div class="line">			this.forceUpdate();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	Connect.contextTypes = &#123;</div><div class="line">		flux: React.PropTypes.object.isRequired</div><div class="line">	&#125;</div><div class="line">	return Connect;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function composeStores(stores) &#123;</div><div class="line">	let ret = &#123;&#125;;</div><div class="line">    </div><div class="line">	Object.keys(stores).forEach(k =&gt; &#123;</div><div class="line">		const store = stores[k];</div><div class="line">		ret = Object.assign(&#123;&#125;, ret, store.getState());</div><div class="line">	&#125;);</div><div class="line"></div><div class="line">	return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>首先，这是一个高层函数，即它会根据参数的不同而返回另一个不同的函数，当参数state是一个函数或者对象时，会返回一个生成新组件的新函数，否则会返回一个函数，直接将传入的组件添加上属性进行返回。<br>新组件在渲染时会将传入的<code>React 类</code>使用<code>React.createElement</code>进行渲染处理，这其实是一层包装，用于为组件绑定响应的属性，如this.props、store、action等，当返回时就可以在组件中直接访问这些属性了。</p>
+<p>流程：<br><code>&lt;Provider&gt;&lt;App /&gt;&lt;/Provider&gt;</code>(index.jsx) =&gt;<br><code>{childre} =&gt; &lt;AltContainer flux={alt}&gt; {children} &lt;/AltContainer&gt;</code>(Provier.dev.jsx) =&gt;<br><code>export default connect(({notes}) =&gt; ({notes}), {NoteActions})(App);</code>(app.jsx) =&gt;<br><code>React.createElement(target, {...Object.assign({}, this.props, state(composedStores), actions)});</code>(connect.jsx) =&gt;</p>
+<p>首先是将App（此时的App其实是connect的返回，是一个包装之后的全新的组件）作为参数传入Provider，Provider通过AltContainer将alt传给connect返回的组件Connect，在Connect组件渲染时中可以通过<code>this.context</code>访问传入的alt，从中拿到flux，以及flux中的NoteStore,然后就可以将store和之前传入的action等绑定到该新创建的组件中。</p>
+<p>至此，基本是React集成Alt的一个基本的过程，这些也就是对思路的一个基本梳理，后面还需要理解以及修补。</p>
 
       
     </div>
