@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<table>
+<tbody>
+<tr class="odd">
+<td>title: React之Alt架构分析</td>
+</tr>
+<tr class="even">
+<td>date: 2016-09-12 21:58:53</td>
+</tr>
+<tr class="odd">
+<td>tags: react、alt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="section"></h2>
+<pre><code>function test() {
+    console.log(&#39;hello world&#39;);
+}</code></pre>
+<h2 id="hello-world">Hello world</h2>
+<blockquote>
+<p>这是一个黛色的区域,看看自动保存没有 helllo wolrd zhangyuq</p>
+</blockquote>
+</body>
+</html>
