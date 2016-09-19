@@ -4,30 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>JadeStrong&#39; Blog</title>
+  <title>jQuery源码分析1 | JadeStrong&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="code{white-space: pre;}
-  
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; bor">
+  <meta name="description" content="jQuery源码分析1该部分分析一下jquery的选择器这块，试着分析一下，在实战中好像经常会考查这部分知识。
+先从一个正则开始：/^[^&amp;lt;]*(&amp;lt;[\w\W]+&amp;gt;)[^&amp;gt;]*$/这个正则表达式所要匹配的是包含html元素的字符串。
+
+符合条件的字符串必须包含一个&amp;lt;&amp;gt;标签，对于位置并没有限定，前后都可以有其他非&amp;lt;&amp;gt;字符。此处是前后结尾并没有任何限制，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JadeStrong' Blog">
-<meta property="og:url" content="http://jadestrong.com/2016/09/13/hello-world/index.html">
+<meta property="og:title" content="jQuery源码分析1">
+<meta property="og:url" content="http://jadestrong.com/2016/09/14/jQuery源码分析1/index.html">
 <meta property="og:site_name" content="JadeStrong' Blog">
-<meta property="og:description" content="code{white-space: pre;}
-  
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; bor">
-<meta property="og:updated_time" content="2016-09-13T15:25:03.019Z">
+<meta property="og:description" content="jQuery源码分析1该部分分析一下jquery的选择器这块，试着分析一下，在实战中好像经常会考查这部分知识。
+先从一个正则开始：/^[^&amp;lt;]*(&amp;lt;[\w\W]+&amp;gt;)[^&amp;gt;]*$/这个正则表达式所要匹配的是包含html元素的字符串。
+
+符合条件的字符串必须包含一个&amp;lt;&amp;gt;标签，对于位置并没有限定，前后都可以有其他非&amp;lt;&amp;gt;字符。此处是前后结尾并没有任何限制，">
+<meta property="og:updated_time" content="2016-09-14T15:14:51.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JadeStrong' Blog">
-<meta name="twitter:description" content="code{white-space: pre;}
-  
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; bor">
+<meta name="twitter:title" content="jQuery源码分析1">
+<meta name="twitter:description" content="jQuery源码分析1该部分分析一下jquery的选择器这块，试着分析一下，在实战中好像经常会考查这部分知识。
+先从一个正则开始：/^[^&amp;lt;]*(&amp;lt;[\w\W]+&amp;gt;)[^&amp;gt;]*$/这个正则表达式所要匹配的是包含html元素的字符串。
+
+符合条件的字符串必须包含一个&amp;lt;&amp;gt;标签，对于位置并没有限定，前后都可以有其他非&amp;lt;&amp;gt;字符。此处是前后结尾并没有任何限制，">
   
     <link rel="alternative" href="/atom.xml" title="JadeStrong&#39; Blog" type="application/atom+xml">
   
@@ -127,7 +124,7 @@ table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a>
+						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery javascript</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery,javascript</a> <a href="/tags/localStorage-wrap/" style="font-size: 10px;">localStorage,wrap</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a> <a href="/tags/数据结构-java/" style="font-size: 10px;">数据结构 java</a>
 					</div>
 				</section>
 				
@@ -209,11 +206,11 @@ table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-jQuery源码分析1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/13/hello-world/" class="article-date">
-  	<time datetime="2016-09-13T15:25:03.019Z" itemprop="datePublished">2016-09-13</time>
+      <a href="/2016/09/14/jQuery源码分析1/" class="article-date">
+  	<time datetime="2016-09-14T13:50:32.000Z" itemprop="datePublished">2016-09-14</time>
 </a>
     </div>
   
@@ -222,78 +219,36 @@ table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery源码分析1
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery-javascript/">jquery javascript</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <meta name="generator" content="pandoc">
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-  </style>
-</head>
-<body>
-<table>
-<tbody>
-<tr class="odd">
-<td>title: Hello World</td>
-</tr>
-</tbody>
-</table>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexo</span> new <span class="st">&quot;My New Post&quot;</span></code></pre></div>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexo</span> server</code></pre></div>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexo</span> generate</code></pre></div>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexo</span> deploy</code></pre></div>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-</body>
-</html>
+        <h2 id="jQuery源码分析1"><a href="#jQuery源码分析1" class="headerlink" title="jQuery源码分析1"></a>jQuery源码分析1</h2><p>该部分分析一下jquery的选择器这块，试着分析一下，在实战中好像经常会考查这部分知识。</p>
+<p>先从一个正则开始：<code>/^[^&lt;]*(&lt;[\w\W]+&gt;)[^&gt;]*$/</code>这个正则表达式所要匹配的是包含html元素的字符串。</p>
+<ul>
+<li>符合条件的字符串必须包含一个<code>&lt;&gt;</code>标签，对于位置并没有限定，<del>前后都可以有其他非<code>&lt;&gt;</code>字符</del>。<br>此处是前后结尾并没有任何限制，虽然指定了<code>^[^&lt;]</code>和<code>[^&gt;]$</code>，但是后面都跟了一个<code>*</code>表示可以有任意数量，当然包括0个，而里面则是一个标准的模式，必须是以<code>&lt;</code>和<code>&gt;</code>来开头和结尾的字符串，所以即使后面多跟一个<code>&gt;</code>也无所谓，因为它会匹配<code>[\w\W]+</code>,所以这个正则匹配的是一个包含html元素的字符串。</li>
+</ul>
+<p>再来看另一个正则表达式：<code>/^#([\w-]+)$/</code>,该表达式很明显是匹配一个ID选择器。该选择规定了选择器的规则，必须是由字母和-组成，且以#开头。</p>
 
       
     </div>
@@ -303,18 +258,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     
 <nav id="article-nav">
   
-    <a href="/2016/09/14/Git的基本指令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/15/DIY一个自己的jQuery1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Git的基本指令
+          DIY一个自己的jQuery1
         
       </div>
     </a>
   
   
-    <a href="/2016/09/13/配置Emacs为Markdown编辑器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">配置Emacs为Markdown编辑器</div>
+    <a href="/2016/09/14/Git的基本指令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git的基本指令</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -349,7 +304,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="" data-url="http://jadestrong.com/2016/09/13/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="jQuery源码分析1" data-title="jQuery源码分析1" data-url="http://jadestrong.com/2016/09/14/jQuery源码分析1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
