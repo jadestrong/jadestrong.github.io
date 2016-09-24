@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | JadeStrong&#39; Blog</title>
+  <title>配置shell的环境变量 | JadeStrong&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了~/.npm-global目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：
+12345678#创建存放文件夹mkdir ~/.npm-gloabl#配置npm使用该文件夹npm set prefix &amp;apos;~/.npm-global&amp;apos;#打开或着创建一个~/.profi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://jadestrong.com/2016/08/08/hello-world/index.html">
+<meta property="og:title" content="配置shell的环境变量">
+<meta property="og:url" content="http://jadestrong.com/2016/09/24/配置shell的环境变量/index.html">
 <meta property="og:site_name" content="JadeStrong' Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-08-08T02:53:51.064Z">
+<meta property="og:description" content="在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了~/.npm-global目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：
+12345678#创建存放文件夹mkdir ~/.npm-gloabl#配置npm使用该文件夹npm set prefix &amp;apos;~/.npm-global&amp;apos;#打开或着创建一个~/.profi">
+<meta property="og:updated_time" content="2016-09-24T08:57:56.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="配置shell的环境变量">
+<meta name="twitter:description" content="在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了~/.npm-global目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：
+12345678#创建存放文件夹mkdir ~/.npm-gloabl#配置npm使用该文件夹npm set prefix &amp;apos;~/.npm-global&amp;apos;#打开或着创建一个~/.profi">
   
     <link rel="alternative" href="/atom.xml" title="JadeStrong&#39; Blog" type="application/atom+xml">
   
@@ -118,7 +118,7 @@ Quick">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery javascript</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery,javascript</a> <a href="/tags/localStorage-wrap/" style="font-size: 10px;">localStorage,wrap</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a> <a href="/tags/数据结构-java/" style="font-size: 10px;">数据结构 java</a>
+						<a href="/tags/emacs-shell-env/" style="font-size: 10px;">emacs shell env</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery javascript</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery,javascript</a> <a href="/tags/localStorage-wrap/" style="font-size: 10px;">localStorage,wrap</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a> <a href="/tags/数据结构-java/" style="font-size: 10px;">数据结构 java</a>
 					</div>
 				</section>
 				
@@ -200,11 +200,11 @@ Quick">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-配置shell的环境变量" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/08/hello-world/" class="article-date">
-  	<time datetime="2016-08-08T02:53:51.064Z" itemprop="datePublished">2016-08-08</time>
+      <a href="/2016/09/24/配置shell的环境变量/" class="article-date">
+  	<time datetime="2016-09-24T08:24:33.000Z" itemprop="datePublished">2016-09-24</time>
 </a>
     </div>
   
@@ -217,7 +217,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      配置shell的环境变量
     </h1>
   
 
@@ -225,6 +225,10 @@ Quick">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs-shell-env/">emacs shell env</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -233,15 +237,12 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了<code>~/.npm-global</code>目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#创建存放文件夹</div><div class="line">mkdir ~/.npm-gloabl</div><div class="line">#配置npm使用该文件夹</div><div class="line">npm set prefix &apos;~/.npm-global&apos;</div><div class="line">#打开或着创建一个~/.profile文件，添加如下命令</div><div class="line">export PATH=~/.npm-global/bin:$PATH</div><div class="line">#回到命令行，更新系统变量</div><div class="line">source ~/.profile</div></pre></td></tr></table></figure>
+<p>解读一下上面的命令：<br><code>$PATH</code>就是系统的命令地址等，而export句命令是将 <code>~/.npm-global/bin</code>拼接到已有的路径上，再重新赋值给该变量。 <code>:</code>是变量之间的分割符。</p>
+<p>上面都是配置到 <code>~/.profile</code>文件下的，系统会到启动时读取该文件，所以系统的终端程序能够读取里面的配置。但是在emacs中嵌入的shell却读取不到在该文件中配置的语句，所以我在 <code>~/.bashrc</code>文件下，把上面那句加上了，这样每个shell终端启动应该都可以读取这个配置。</p>
+<p>另外一个问题是，emacs内置的eshell程序却只能读取到系统级别的命令，如 <code>/usr/bin</code>等目录下的命令，所以通过npm指定的命令还是不起作用，目前可以找到的方法是为emacs添加环境变量来解决，但怎么加，还得再研究下。<br>由于上面这个问题导致的，通过npm安装的全局命令如<code>js-beautify</code>等命令不能使用，例如在<code>web-beautify</code>这个elisp插件会调用该命令去处理文件的格式化，由于访问不到该命令所以会失败，提示让通过 <code>npm -g install js-beautify</code>来安装，但是我们已经安装了，所以还是需要继续解决这个问题。</p>
+<p>注：在检查环境变量时，在命令行中直接的输入 <code>env</code>即可查看。</p>
 
       
     </div>
@@ -251,15 +252,11 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2016/08/09/我的第一篇在线博客/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          我的第一篇在线博客
-        
-      </div>
-    </a>
   
+    <a href="/2016/09/22/一些笔试题目整理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一些笔试题目整理</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -292,7 +289,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://jadestrong.com/2016/08/08/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="配置shell的环境变量" data-title="配置shell的环境变量" data-url="http://jadestrong.com/2016/09/24/配置shell的环境变量/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

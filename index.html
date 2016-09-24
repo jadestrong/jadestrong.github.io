@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery javascript</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery,javascript</a> <a href="/tags/localStorage-wrap/" style="font-size: 10px;">localStorage,wrap</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a> <a href="/tags/数据结构-java/" style="font-size: 10px;">数据结构 java</a>
+						<a href="/tags/emacs-shell-env/" style="font-size: 10px;">emacs shell env</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery javascript</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery,javascript</a> <a href="/tags/localStorage-wrap/" style="font-size: 10px;">localStorage,wrap</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a> <a href="/tags/数据结构-java/" style="font-size: 10px;">数据结构 java</a>
 					</div>
 				</section>
 				
@@ -198,11 +198,194 @@
 
       <div class="body-wrap">
   
+    <article id="post-配置shell的环境变量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/24/配置shell的环境变量/" class="article-date">
+  	<time datetime="2016-09-24T08:24:33.000Z" itemprop="datePublished">2016-09-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/24/配置shell的环境变量/">配置shell的环境变量</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了<code>~/.npm-global</code>目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#创建存放文件夹</div><div class="line">mkdir ~/.npm-gloabl</div><div class="line">#配置npm使用该文件夹</div><div class="line">npm set prefix &apos;~/.npm-global&apos;</div><div class="line">#打开或着创建一个~/.profile文件，添加如下命令</div><div class="line">export PATH=~/.npm-global/bin:$PATH</div><div class="line">#回到命令行，更新系统变量</div><div class="line">source ~/.profile</div></pre></td></tr></table></figure>
+<p>解读一下上面的命令：<br><code>$PATH</code>就是系统的命令地址等，而export句命令是将 <code>~/.npm-global/bin</code>拼接到已有的路径上，再重新赋值给该变量。 <code>:</code>是变量之间的分割符。</p>
+<p>上面都是配置到 <code>~/.profile</code>文件下的，系统会到启动时读取该文件，所以系统的终端程序能够读取里面的配置。但是在emacs中嵌入的shell却读取不到在该文件中配置的语句，所以我在 <code>~/.bashrc</code>文件下，把上面那句加上了，这样每个shell终端启动应该都可以读取这个配置。</p>
+<p>另外一个问题是，emacs内置的eshell程序却只能读取到系统级别的命令，如 <code>/usr/bin</code>等目录下的命令，所以通过npm指定的命令还是不起作用，目前可以找到的方法是为emacs添加环境变量来解决，但怎么加，还得再研究下。<br>由于上面这个问题导致的，通过npm安装的全局命令如<code>js-beautify</code>等命令不能使用，例如在<code>web-beautify</code>这个elisp插件会调用该命令去处理文件的格式化，由于访问不到该命令所以会失败，提示让通过 <code>npm -g install js-beautify</code>来安装，但是我们已经安装了，所以还是需要继续解决这个问题。</p>
+<p>注：在检查环境变量时，在命令行中直接的输入 <code>env</code>即可查看。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs-shell-env/">emacs shell env</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-一些笔试题目整理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/22/一些笔试题目整理/" class="article-date">
+  	<time datetime="2016-09-22T03:52:49.000Z" itemprop="datePublished">2016-09-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/22/一些笔试题目整理/">一些笔试题目整理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.假设需实现构造函数Scope，它的特性如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scopeA = <span class="keyword">new</span> Scope();</div><div class="line">scopeA.title = <span class="string">'My title'</span>;</div><div class="line"><span class="keyword">var</span> scopeB = scopeA.$clone();</div><div class="line"><span class="comment">// 实例有$clone方法用创建一个对象克隆，表现如下</span></div><div class="line"><span class="built_in">console</span>.log(scopeB.title === <span class="string">'My title'</span>); <span class="comment">//输出 true</span></div><div class="line">scopeA.title = <span class="string">'Home title'</span>;</div><div class="line"><span class="built_in">console</span>.log(scopeB.title === <span class="string">'Home title'</span>); <span class="comment">//输出true</span></div><div class="line"><span class="comment">//但是一旦scopeB主动修改它的属性，scopeA并不受影响</span></div><div class="line">scopeB.title = <span class="string">'scopeB title'</span>;</div><div class="line"><span class="built_in">console</span>.log(scopeA.title === <span class="string">'Home title'</span>); <span class="comment">//输出 true</span></div></pre></td></tr></table></figure>
+<p>请实现满足这个条件构造函数Scope（只需要实现上述描述需求即可）；</p>
+<p>解答：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Scope</span>  (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Scope.prototype.$clone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.create(<span class="keyword">this</span>, &#123;</div><div class="line">        <span class="keyword">constructor</span>: &#123;</div><div class="line">            value: Scope,</div><div class="line">            enumerable: <span class="literal">true</span>,</div><div class="line">            writeable: <span class="literal">true</span>,</div><div class="line">            configurable: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>2.<img src="file:///home/jadestrong/Pictures/Screenshot from 2016-08-01 19-59-44.png" alt="题目图片"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/21/hello-world/" class="article-date">
+  	<time datetime="2016-09-21T01:03:45.769Z" itemprop="datePublished">2016-09-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/21/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-360笔试练习题分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/20/360笔试练习题分析/" class="article-date">
-  	<time datetime="2016-09-19T16:16:38.748Z" itemprop="datePublished">2016-09-20</time>
+      <a href="/2016/09/21/360笔试练习题分析/" class="article-date">
+  	<time datetime="2016-09-21T01:03:45.766Z" itemprop="datePublished">2016-09-21</time>
 </a>
     </div>
   
@@ -323,6 +506,58 @@
 
 
   
+    <article id="post-360笔试" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/21/360笔试/" class="article-date">
+  	<time datetime="2016-09-21T00:43:23.000Z" itemprop="datePublished">2016-09-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/21/360笔试/">360笔试</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-360笔试练习题分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -363,6 +598,8 @@
 <h2 id="设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？"><a href="#设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？" class="headerlink" title="设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？"></a>设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？</h2><p>带头结点的双循环链表</p>
 <hr>
 <h2 id="用有向无环图描述表达式（A-B-A-B-A-，至少需要顶点的数目为（）。"><a href="#用有向无环图描述表达式（A-B-A-B-A-，至少需要顶点的数目为（）。" class="headerlink" title="用有向无环图描述表达式（A+B)*((A+B)/A)，至少需要顶点的数目为（）。"></a>用有向无环图描述表达式（A+B)*((A+B)/A)，至少需要顶点的数目为（）。</h2><p>5</p>
+<hr>
+<p>一些额外的知识点记录下来：<br>1.对Web标准和W3C规范的理解？<br>Web标准简单来说分为三部分，即html,css和javascript，也就是常说的结构、表现和行为，web标准一般是把这三部分独立分开，使其更具有模块化。<br>W3C对web标准提出了规范化的要求，也就是在实际开发中的一些代码规范。<br>2.列举块级元素和行内元素：<br>行内元素：a，em，strong，span,i,b,img,input,label,select,textarea,sub,sup,q<br>块级元素：div,ul,li,dd,dt,dl,ol,p,h1~h6,table,form,fieldset<br>3.列举浏览器的内核：<br>IE：Trident,Chrome：Webkit，Firefox：Gecko<br>4.Ajax中post和get请求的区别？<br>使用get请求时，参数在URL中显示，而post不是，其将参数放在body中，不会直接显示出来；<br>使用get传递参数大小有限制，大约在1k左右，这个限制并不是http协议规定，应该是浏览器对URL的大小有限制，所以也就相当于限制了参数的大小，而post对参数大小没有限制；<br>get请求默认是会被浏览器缓存的，因为对于同一URL，浏览器会认为其结果是一样的，所以当第二次请求时会直接使用上一次的结果，而浏览器认为post请求是变动的，所以其请求不会被缓存，另外若要避免缓存get请求，则给get请求添加一个参数如?t=new Date(),可达到目的；<br>在使用ajax的xhr对象发送请求时，由于get请求不会在请求体中传递参数，所以需要传递一个null参数，而post直接传递参数即可；<br>post请求必须设置header的Content-type的值为application/x-form-www-urlencoded，确保服务器知道实体中有参数变量，可以使用xmlHttpRequest对象的setRequestHeader(‘Content-type’,’application/x-form-www-urlencoded’)。</p>
 
       
     </div>
@@ -622,254 +859,6 @@
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 	</div>
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-配置Emacs为Markdown编辑器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/13/配置Emacs为Markdown编辑器/" class="article-date">
-  	<time datetime="2016-09-13T00:51:08.000Z" itemprop="datePublished">2016-09-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/13/配置Emacs为Markdown编辑器/">配置Emacs为Markdown编辑器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="配置Markdown编辑器"><a href="#配置Markdown编辑器" class="headerlink" title="配置Markdown编辑器"></a>配置Markdown编辑器</h2><p>首先是安装<code>markdown-mode</code>,这个可以参考该文档；<br>然后，如果本地没有配置<code>markdown</code>命令来将<code>.md</code>文件转换成<code>.html</code>文件的话，会爆出<code>bash error: no markdown commond</code>等错误，此时需要在本地安装一个markdown编译器，例如pandoc(由于该编译器的原生命令为<code>pandoc</code>，所以还需要配置需要的markdown命令),如下配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//创建一个markdown名称的文件，不要文件名</div><div class="line">touch markdown</div><div class="line">//编辑它,此处$1是占位符，用于需要处理的文件</div><div class="line">pandoc -f markdown -t html -s --mathjax --highlight-style pygments --from markdown-yaml_metadata_block $1</div><div class="line">//然后将该文件放到/usr/bin目录中</div><div class="line">su -c &apos;mv markdown /usr/bin&apos;</div><div class="line">//并为它添加可执行权限</div><div class="line">su -c &apos;chmod a+x /usr/bin/markdown</div></pre></td></tr></table></figure></p>
-<p>经过上面的配置，现在应该已经可以使用emacs或调用浏览器来预览md文件了。</p>
-<p>另外，我们还可以使用emacs支持的eww浏览器来在emacs中实现预览：<code>C+c C+c l</code>即可。</p>
-<p>此时，并不能实现实时预览，只有我们按下保存按钮之后，才能后更新预览，在这可以配置emacs的自动保存，需要下载<code>auto-save.el</code>文件：<a href="https://github.com/manateelazycat/deepin-emacs/blob/master/site-lisp/extensions/lazycat/auto-save.el" target="_blank" rel="external">https://github.com/manateelazycat/deepin-emacs/blob/master/site-lisp/extensions/lazycat/auto-save.el</a></p>
-<p>并修改<code>.emacs</code>文件,该文件存放在<code>~/</code>路径下，如果没有可以创建，另外也可以修改<code>~/.emacs.d/init.el</code>文件，这两个文件都是等价的，emacs启动时会读取这些文件并加载定义的插件。<br>文件配置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//这一句是必须的，用于指定扩展插件的路径</div><div class="line">(add-to-list &apos;load-path (expand-file-name &#123;path to package directory&#125;  user-emacs-directory))</div><div class="line">//下面是加载模块的代码</div><div class="line">(require &apos;auto-save)            ;; 加载自动保存模块</div><div class="line"></div><div class="line">(auto-save-enable)              ;; 开启自动保存功能</div><div class="line">(setq auto-save-slient t)       ;; 自动保存的时候静悄悄的， 不要打扰我</div></pre></td></tr></table></figure>
-<p>至此，已经配置好了自动保存功能，当编辑markdown文件时，可以实现自动保存并刷新展示。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown-emacs/">markdown emacs</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-React之Alt架构分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/12/React之Alt架构分析/" class="article-date">
-  	<time datetime="2016-09-12T13:58:53.000Z" itemprop="datePublished">2016-09-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/React之Alt架构分析/">React之Alt架构分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="React之Alt架构分析"><a href="#React之Alt架构分析" class="headerlink" title="React之Alt架构分析"></a>React之Alt架构分析</h2><p>在使用Alt时，首先需要实例化一个alt实例，将其定义为一个单例模块，然后对其做一些必要的配置，然后就可以将它导出，当在项目中需要时可以执行引入，而不用每次都实例化了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import Alt from &apos;alt&apos;;</div><div class="line">import makeFinalStore from &apos;alt-utils/lib/makeFinalStore&apos;;</div><div class="line"></div><div class="line">class Flux extends Alt &#123;</div><div class="line">	constructor(config) &#123;</div><div class="line">		super(config);</div><div class="line">		this.FinalStore = makeFinalStore(this);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const flux = new Flux();</div><div class="line"></div><div class="line">export default flux;</div></pre></td></tr></table></figure></p>
-<p>在上面我们还使用了<code>alt-utils</code>的makeFinalStore,这个是用来监视所有的store都修改完毕之后，可以做最后处理。 ？</p>
-<p>当定义好了alt实例，下面是需要将它配置到React项目中去，需要在Provider中配置，首先介绍下Provider的概念，这是Alt架构的两个概念之一，另一个是connect负责将action等连接到组件中去。至于Provider更多的是一个可扩展接口，其实可以将其直接嵌入到组件中，但是区分开来更加容易定制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import AltContainer from &apos;alt-container&apos;;</div><div class="line">import chromeDebug from &apos;alt-utils/lib/chromeDebug&apos;;</div><div class="line">import alt from &apos;../../libs/alt&apos;;</div><div class="line">import setup from &apos;./setup&apos;;</div><div class="line"></div><div class="line">setup(alt); //这个用来对alt做一些通用的配置</div><div class="line"></div><div class="line">chromeDebug(alt); //这个是一个debug组件，结合chrome插件调试alt</div><div class="line"></div><div class="line">React.Pref = require(&apos;react-addons-perf&apos;); // 这个好像是性能分析工具</div><div class="line"></div><div class="line">export default (&#123;children&#125;) =&gt;</div><div class="line">	&lt;AltContainer flux=&#123;alt&#125;&gt;</div><div class="line">		&#123;children&#125;</div><div class="line">	&lt;/AltContainer&gt;</div></pre></td></tr></table></figure></p>
-<p>在导出部分，使用了<code>AltContainer</code>，这个东西可以为子组件传入<code>this.props</code>属性信息，可以分开定义，也可以使用我们定义的<code>alt</code>。</p>
-<p>在传入alt之前，我们需要将store绑定到alt中，这个操作就是在<code>setup.js</code>中做的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import NoteStore from &apos;../../stores/NoteStore&apos;;</div><div class="line"></div><div class="line">export default alt =&gt; &#123;</div><div class="line">	alt.addStore(&apos;NoteStore&apos;, NoteStore);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样就会将NoteStore通过alt实例，在AltContainer中传入{children}中，在组件中可以通过<code>this.props</code>来访问。</p>
-<p><strong>注意：</strong>此处在参数传递中还有困惑，即：是将NoteStore直接传入了组件的<code>props</code>属性，还是通过<code>connect</code>函数来做的？ 在后面看来这些都是在connect中做的处理。这一点在主组件文件<code>app.jsx</code>中也可以看，组件App是作为参数传入了connect函数，而最后导出的是connect函数最终执行的结果，即将修订后的App组件返回并在后续进行渲染</p>
-<p>分析下connect函数所起的作用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line"></div><div class="line">export default (state, actions) =&gt; &#123;</div><div class="line">	if (typeof state === &apos;function&apos; || </div><div class="line">		(typeof state === &apos;object&apos; &amp;&amp; Object.keys(state).length)) &#123;</div><div class="line">		return target =&gt; connect(state, actions, target);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return target =&gt; props =&gt;(</div><div class="line">		&lt;target &#123;...Object.assign(&#123;&#125;, props, actions)&#125; /&gt;</div><div class="line">	);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function connect(state = () =&gt; &#123;&#125;, actions = &#123;&#125;, target) &#123;</div><div class="line">	class Connect extends React.Component &#123;</div><div class="line">		constructor() &#123;</div><div class="line">			super();</div><div class="line">			this.handleChange = this.handleChange.bind(this);</div><div class="line">		&#125;</div><div class="line">		componentDidMount() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			flux.FinalStore.listen(this.handleChange);</div><div class="line">		&#125;</div><div class="line">		componentWillUnMount() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			flux.FinalStore.unlisten(this.handleChange);</div><div class="line">		&#125;</div><div class="line">		render() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			const stores = flux.stores;</div><div class="line">			const composedStores = composeStores(stores);</div><div class="line"></div><div class="line">			return React.createElement(target, </div><div class="line">				&#123;...Object.assign(&#123;&#125;, this.props, state(composedStores), actions)&#125;);</div><div class="line">		&#125;</div><div class="line">		handleChange() &#123;</div><div class="line">			this.forceUpdate();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	Connect.contextTypes = &#123;</div><div class="line">		flux: React.PropTypes.object.isRequired</div><div class="line">	&#125;</div><div class="line">	return Connect;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function composeStores(stores) &#123;</div><div class="line">	let ret = &#123;&#125;;</div><div class="line">    </div><div class="line">	Object.keys(stores).forEach(k =&gt; &#123;</div><div class="line">		const store = stores[k];</div><div class="line">		ret = Object.assign(&#123;&#125;, ret, store.getState());</div><div class="line">	&#125;);</div><div class="line"></div><div class="line">	return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>首先，这是一个高层函数，即它会根据参数的不同而返回另一个不同的函数，当参数state是一个函数或者对象时，会返回一个生成新组件的新函数，否则会返回一个函数，直接将传入的组件添加上属性进行返回。<br>新组件在渲染时会将传入的<code>React 类</code>使用<code>React.createElement</code>进行渲染处理，这其实是一层包装，用于为组件绑定响应的属性，如this.props、store、action等，当返回时就可以在组件中直接访问这些属性了。</p>
-<p>流程：<br><code>&lt;Provider&gt;&lt;App /&gt;&lt;/Provider&gt;</code>(index.jsx) =&gt;<br><code>{childre} =&gt; &lt;AltContainer flux={alt}&gt; {children} &lt;/AltContainer&gt;</code>(Provier.dev.jsx) =&gt;<br><code>export default connect(({notes}) =&gt; ({notes}), {NoteActions})(App);</code>(app.jsx) =&gt;<br><code>React.createElement(target, {...Object.assign({}, this.props, state(composedStores), actions)});</code>(connect.jsx) =&gt;</p>
-<p>首先是将App（此时的App其实是connect的返回，是一个包装之后的全新的组件）作为参数传入Provider，Provider通过AltContainer将alt传给connect返回的组件Connect，在Connect组件渲染时中可以通过<code>this.context</code>访问传入的alt，从中拿到flux，以及flux中的NoteStore,然后就可以将store和之前传入的action等绑定到该新创建的组件中。</p>
-<p>至此，基本是React集成Alt的一个基本的过程，这些也就是对思路的一个基本梳理，后面还需要理解以及修补。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react、alt/">react、alt</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-备份Blog源码-git学习" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/12/备份Blog源码-git学习/" class="article-date">
-  	<time datetime="2016-09-12T10:30:30.000Z" itemprop="datePublished">2016-09-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/备份Blog源码-git学习/">备份Blog源码--git学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>在使用Hexo进行博客部署时，仅将生成的静态博客文件上传到了github中，通过GitHub Page进行展示，但是项目的源码都是存储到本地的，所以这样做不是很安全，完全有可能发生源码丢失这种问题，所以在这里建立github分支来存储源码。</p>
-</blockquote>
-<p>命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git init  // 默认这个文件夹是没有进行git初始化的</div><div class="line"></div><div class="line">git remote add origin &#123;your-git-repo-url&#125;  //这个是添加一个新的远程仓库</div><div class="line">git checkout -b source  //这是检出一个分支么？</div><div class="line">git push origin source  //这个是将谁推给谁呢，目前看可能是origin -&gt; source？</div></pre></td></tr></table></figure>
-<p>在这里曾出现一个问题：<code>error: src refspec {branch name,如source} does not match any</code>:</p>
-<blockquote>
-<p>这个是因为推送的目录中没有文件，应该先将当前目录的文件都添加上去：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &apos;some thing&apos;</div><div class="line">git push origin source //即可成功</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-我的第一篇在线博客" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/09/我的第一篇在线博客/" class="article-date">
-  	<time datetime="2016-08-09T03:28:19.000Z" itemprop="datePublished">2016-08-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/09/我的第一篇在线博客/">我的第一篇在线博客</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##难道就这么写吗</p>
-<p>搭建自己的博客，还得卖域名啊，这么贵。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function () &#123;</div><div class="line">    console.log(&apos;Hello World!&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
       
 
       

@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://jadestrong.com/2016/09/19/360笔试练习题分析/index.html">
 <meta property="og:site_name" content="JadeStrong' Blog">
 <meta property="og:description" content="某一系统功能，需要一次性加载N（N在1000左右）个随机数，后续只对该集合执行遍历操作，最宜采用那种数据结构？ 链表数组：连续存储，遍历快且方便，长度固定，缺点：移除和添加  对于长度固定，在某些场合也是一个缺陷；链表：离散存储，添加删除方便，空间和时间消耗大；双向链表较方便，但空间消耗更大；Hash表：数据离散存储，利用hash算法确定存储位置，遍历麻烦；二叉树：一般的查找遍历有深度优先和广度">
-<meta property="og:updated_time" content="2016-09-19T16:16:37.611Z">
+<meta property="og:updated_time" content="2016-09-21T03:48:22.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="360笔试练习题分析">
 <meta name="twitter:description" content="某一系统功能，需要一次性加载N（N在1000左右）个随机数，后续只对该集合执行遍历操作，最宜采用那种数据结构？ 链表数组：连续存储，遍历快且方便，长度固定，缺点：移除和添加  对于长度固定，在某些场合也是一个缺陷；链表：离散存储，添加删除方便，空间和时间消耗大；双向链表较方便，但空间消耗更大；Hash表：数据离散存储，利用hash算法确定存储位置，遍历麻烦；二叉树：一般的查找遍历有深度优先和广度">
@@ -115,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery javascript</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery,javascript</a> <a href="/tags/localStorage-wrap/" style="font-size: 10px;">localStorage,wrap</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a> <a href="/tags/数据结构-java/" style="font-size: 10px;">数据结构 java</a>
+						<a href="/tags/emacs-shell-env/" style="font-size: 10px;">emacs shell env</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery javascript</a> <a href="/tags/jquery-javascript/" style="font-size: 10px;">jquery,javascript</a> <a href="/tags/localStorage-wrap/" style="font-size: 10px;">localStorage,wrap</a> <a href="/tags/markdown-emacs/" style="font-size: 10px;">markdown emacs</a> <a href="/tags/react、alt/" style="font-size: 10px;">react、alt</a> <a href="/tags/数据结构-java/" style="font-size: 10px;">数据结构 java</a>
 					</div>
 				</section>
 				
@@ -248,6 +248,8 @@
 <h2 id="设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？"><a href="#设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？" class="headerlink" title="设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？"></a>设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？</h2><p>带头结点的双循环链表</p>
 <hr>
 <h2 id="用有向无环图描述表达式（A-B-A-B-A-，至少需要顶点的数目为（）。"><a href="#用有向无环图描述表达式（A-B-A-B-A-，至少需要顶点的数目为（）。" class="headerlink" title="用有向无环图描述表达式（A+B)*((A+B)/A)，至少需要顶点的数目为（）。"></a>用有向无环图描述表达式（A+B)*((A+B)/A)，至少需要顶点的数目为（）。</h2><p>5</p>
+<hr>
+<p>一些额外的知识点记录下来：<br>1.对Web标准和W3C规范的理解？<br>Web标准简单来说分为三部分，即html,css和javascript，也就是常说的结构、表现和行为，web标准一般是把这三部分独立分开，使其更具有模块化。<br>W3C对web标准提出了规范化的要求，也就是在实际开发中的一些代码规范。<br>2.列举块级元素和行内元素：<br>行内元素：a，em，strong，span,i,b,img,input,label,select,textarea,sub,sup,q<br>块级元素：div,ul,li,dd,dt,dl,ol,p,h1~h6,table,form,fieldset<br>3.列举浏览器的内核：<br>IE：Trident,Chrome：Webkit，Firefox：Gecko<br>4.Ajax中post和get请求的区别？<br>使用get请求时，参数在URL中显示，而post不是，其将参数放在body中，不会直接显示出来；<br>使用get传递参数大小有限制，大约在1k左右，这个限制并不是http协议规定，应该是浏览器对URL的大小有限制，所以也就相当于限制了参数的大小，而post对参数大小没有限制；<br>get请求默认是会被浏览器缓存的，因为对于同一URL，浏览器会认为其结果是一样的，所以当第二次请求时会直接使用上一次的结果，而浏览器认为post请求是变动的，所以其请求不会被缓存，另外若要避免缓存get请求，则给get请求添加一个参数如?t=new Date(),可达到目的；<br>在使用ajax的xhr对象发送请求时，由于get请求不会在请求体中传递参数，所以需要传递一个null参数，而post直接传递参数即可；<br>post请求必须设置header的Content-type的值为application/x-form-www-urlencoded，确保服务器知道实体中有参数变量，可以使用xmlHttpRequest对象的setRequestHeader(‘Content-type’,’application/x-form-www-urlencoded’)。</p>
 
       
     </div>
@@ -257,11 +259,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/20/360笔试练习题分析/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/21/360笔试/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          (no title)
+          360笔试
         
       </div>
     </a>
