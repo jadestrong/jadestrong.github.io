@@ -230,6 +230,9 @@
 <p>上面都是配置到 <code>~/.profile</code>文件下的，系统会到启动时读取该文件，所以系统的终端程序能够读取里面的配置。但是在emacs中嵌入的shell却读取不到在该文件中配置的语句，所以我在 <code>~/.bashrc</code>文件下，把上面那句加上了，这样每个shell终端启动应该都可以读取这个配置。</p>
 <p>另外一个问题是，emacs内置的eshell程序却只能读取到系统级别的命令，如 <code>/usr/bin</code>等目录下的命令，所以通过npm指定的命令还是不起作用，目前可以找到的方法是为emacs添加环境变量来解决，但怎么加，还得再研究下。<br>由于上面这个问题导致的，通过npm安装的全局命令如<code>js-beautify</code>等命令不能使用，例如在<code>web-beautify</code>这个elisp插件会调用该命令去处理文件的格式化，由于访问不到该命令所以会失败，提示让通过 <code>npm -g install js-beautify</code>来安装，但是我们已经安装了，所以还是需要继续解决这个问题。</p>
 <p>注：在检查环境变量时，在命令行中直接的输入 <code>env</code>即可查看。</p>
+<p>这两个问题都需要设计emacs的环境变量来解决：改环境变量有两种方法，一种是使用 <code>exec-path-from-shell</code>，然而本人并没有改成功，应该是没弄明白文档中是怎么用的，另一种是使用<code>Exec Path</code>,也就是直接在配置文件中设置环境变量，如 <code>.emacs</code>或 <code>init.el</code>,又或者是supacemacs的<code>.init.el</code>的user-config中设置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(setqenv &quot;PATH&quot; (concat (getenv &quot;PATH&quot;) &quot;:/home/jadestong/.npm-global/bin&quot;))</div><div class="line">(setq exec-path (append exec-path &apos;(&quot;/home/jadestrong/.npm-global/bin&quot;)))</div></pre></td></tr></table></figure>
+<p>上面设置了两个变量，一个是PATH，这个是给shell程序使用的，也就是eshell以及emacs中的shell都可以调用npm安装的全局命令了，有了这个应该就不用再修改 <code>.bashrc</code>文件了；另一个exec-path就是给elisp程序使用的了，对于一些如locate等系统命令都是走的这条路，所以在使用 <code>js-beautify</code>等命令时都需要设置这个变量。</p>
 
       
     </div>
