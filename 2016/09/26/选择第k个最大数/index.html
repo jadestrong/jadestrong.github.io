@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>DIY一个自己的jQuery1 | JadeStrong&#39; Blog</title>
+  <title>选择第k个最大数 | JadeStrong&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DIY一个自己的jQuery1jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如jQuery或着更常见的$()方法。下面我们自己探索下它是如何实现的。
-12345678910111213141516171819var $div = $(&amp;apos;div&amp;apos;);(function() &amp;#123;  var _jQuery">
+  <meta name="description" content="给定一组N个数，找出其中第k个最大数？最直观的做法是对这N个数进行降序排序，然后输出第k个数即可。另一种是构建一个临时数组存放取出k个数，进行降序排序,然后依次读取剩余的数，比较其与临时数组中的第k个数，若小则放弃，否则安装选择排序的思路对该数进行排序，最后将最后的一个数移除，使得数组始终保持在k个，则最终的结果即是临时数组的第k个数。代码如下：
+1234567891011121314151617">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DIY一个自己的jQuery1">
-<meta property="og:url" content="http://jadestrong.com/2016/09/15/DIY一个自己的jQuery1/index.html">
+<meta property="og:title" content="选择第k个最大数">
+<meta property="og:url" content="http://jadestrong.com/2016/09/26/选择第k个最大数/index.html">
 <meta property="og:site_name" content="JadeStrong' Blog">
-<meta property="og:description" content="DIY一个自己的jQuery1jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如jQuery或着更常见的$()方法。下面我们自己探索下它是如何实现的。
-12345678910111213141516171819var $div = $(&amp;apos;div&amp;apos;);(function() &amp;#123;  var _jQuery">
-<meta property="og:updated_time" content="2016-09-21T01:03:45.766Z">
+<meta property="og:description" content="给定一组N个数，找出其中第k个最大数？最直观的做法是对这N个数进行降序排序，然后输出第k个数即可。另一种是构建一个临时数组存放取出k个数，进行降序排序,然后依次读取剩余的数，比较其与临时数组中的第k个数，若小则放弃，否则安装选择排序的思路对该数进行排序，最后将最后的一个数移除，使得数组始终保持在k个，则最终的结果即是临时数组的第k个数。代码如下：
+1234567891011121314151617">
+<meta property="og:updated_time" content="2016-09-25T16:42:35.213Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DIY一个自己的jQuery1">
-<meta name="twitter:description" content="DIY一个自己的jQuery1jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如jQuery或着更常见的$()方法。下面我们自己探索下它是如何实现的。
-12345678910111213141516171819var $div = $(&amp;apos;div&amp;apos;);(function() &amp;#123;  var _jQuery">
+<meta name="twitter:title" content="选择第k个最大数">
+<meta name="twitter:description" content="给定一组N个数，找出其中第k个最大数？最直观的做法是对这N个数进行降序排序，然后输出第k个数即可。另一种是构建一个临时数组存放取出k个数，进行降序排序,然后依次读取剩余的数，比较其与临时数组中的第k个数，若小则放弃，否则安装选择排序的思路对该数进行排序，最后将最后的一个数移除，使得数组始终保持在k个，则最终的结果即是临时数组的第k个数。代码如下：
+1234567891011121314151617">
   
     <link rel="alternative" href="/atom.xml" title="JadeStrong&#39; Blog" type="application/atom+xml">
   
@@ -200,11 +200,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-DIY一个自己的jQuery1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-选择第k个最大数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/15/DIY一个自己的jQuery1/" class="article-date">
-  	<time datetime="2016-09-15T07:11:50.000Z" itemprop="datePublished">2016-09-15</time>
+      <a href="/2016/09/26/选择第k个最大数/" class="article-date">
+  	<time datetime="2016-09-25T16:31:11.000Z" itemprop="datePublished">2016-09-26</time>
 </a>
     </div>
   
@@ -217,7 +217,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      DIY一个自己的jQuery1
+      选择第k个最大数
     </h1>
   
 
@@ -226,7 +226,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery-javascript/">jquery,javascript</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法-数据结构/">算法 数据结构</a></li></ul>
 	</div>
 
         
@@ -237,8 +237,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="DIY一个自己的jQuery1"><a href="#DIY一个自己的jQuery1" class="headerlink" title="DIY一个自己的jQuery1"></a>DIY一个自己的jQuery1</h1><p>jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如<code>jQuery</code>或着更常见的<code>$()</code>方法。下面我们自己探索下它是如何实现的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var $div = $(&apos;div&apos;);</div><div class="line"></div><div class="line">(function() &#123;</div><div class="line">  var _jQuery = window.jQuery,</div><div class="line">      _$ = window.$;</div><div class="line"></div><div class="line">  var version = &apos;0.0.1&apos;,</div><div class="line">      jQuery = function(selector) &#123;</div><div class="line">        console.log(document.querySelector(selector));</div><div class="line">      &#125;;</div><div class="line">  jQuery.prototype = &#123;</div><div class="line">    jquery: version,</div><div class="line">    constructor: jQuery</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  window.$ = window.jQuery = function(selector) &#123;</div><div class="line">    return new jQuery(selector); // 在接口函数中定义了方法，而调用接口返回的是new初始化的实例</div><div class="line">  &#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+        <p>给定一组N个数，找出其中第k个最大数？<br>最直观的做法是对这N个数进行降序排序，然后输出第k个数即可。<br>另一种是构建一个临时数组存放取出k个数，进行降序排序,然后依次读取剩余的数，比较其与临时数组中的第k个数，若小则放弃，否则安装选择排序的思路对该数进行排序，最后将最后的一个数移除，使得数组始终保持在k个，则最终的结果即是临时数组的第k个数。<br>代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> input = [];</div><div class="line"><span class="keyword">var</span> max = <span class="number">10</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">0</span>; m &lt; max; m++) &#123;</div><div class="line">	input.push(<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * max));</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'full input array: '</span> + input);</div><div class="line"><span class="keyword">var</span> temp = [];</div><div class="line"><span class="keyword">var</span> k = <span class="built_in">Math</span>.floor(input.length / <span class="number">2</span>);</div><div class="line"><span class="keyword">var</span> i,j;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++) &#123;</div><div class="line">    temp.push(input.pop());</div><div class="line">&#125;</div><div class="line">temp.sort(<span class="function"><span class="keyword">function</span>(<span class="params">v1, v2</span>) </span>&#123;<span class="keyword">return</span> v2 - v1;&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Get the k elements and sort them: '</span> + temp);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Last some elemenets which will be inserted in temp: '</span> + input);</div><div class="line">input.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (item &gt; temp[k - <span class="number">1</span>]) &#123;</div><div class="line">       <span class="keyword">for</span> (j = k - <span class="number">1</span>; temp[j] &lt; item; j--) <span class="comment">//在这里使用temp[j]&lt;item来做for循环的判定条件值得学习，使得代码更简洁</span></div><div class="line">       		temp[j+<span class="number">1</span>] = temp[j];</div><div class="line">       temp[j+<span class="number">1</span>] = item; <span class="comment">//重中之重，记住是插入到j+1的位置</span></div><div class="line">       temp.pop();</div><div class="line">       <span class="built_in">console</span>.log(<span class="string">'every time insert into a new element, the results is: '</span> + temp);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(temp);</div><div class="line"><span class="built_in">console</span>.log(temp[k - <span class="number">1</span>]);</div></pre></td></tr></table></figure>
+<p>上面代码中注释的地方是容易出错的地方，需要好好体会。</p>
+<p>上面这两种方法在输入数据少的时候，效果还可以，但是当数据量超大了，就不能短时间内给出结果了，所以这两种方法都不算好的算法。</p>
 
       
     </div>
@@ -248,18 +250,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/17/LocalStorage的使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          LocalStorage的使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/09/14/jQuery源码分析1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jQuery源码分析1</div>
+    <a href="/2016/09/24/配置shell的环境变量/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">配置shell的环境变量</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -294,7 +287,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="DIY一个自己的jQuery1" data-title="DIY一个自己的jQuery1" data-url="http://jadestrong.com/2016/09/15/DIY一个自己的jQuery1/"></div>
+	<div class="ds-thread" data-thread-key="选择第k个最大数" data-title="选择第k个最大数" data-url="http://jadestrong.com/2016/09/26/选择第k个最大数/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
