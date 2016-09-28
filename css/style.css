@@ -665,6 +665,7 @@ code {
     margin: 0;
     padding: 0;
     width: 100%;
+    background: #f8f5ec;
     border-collapse: collapse; }
   .highlight .code .comment,
   .highlight .code .quote {
