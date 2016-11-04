@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jadestrong.com/"/>
-  <updated>2016-09-28T15:49:46.218Z</updated>
+  <updated>2016-11-04T03:33:15.190Z</updated>
   <id>http://jadestrong.com/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>svn命令的基本使用</title>
+    <link href="http://jadestrong.com/2016/11/04/svn%E5%91%BD%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+    <id>http://jadestrong.com/2016/11/04/svn命令的基本使用/</id>
+    <published>2016-11-04T03:25:41.000Z</published>
+    <updated>2016-11-04T03:33:15.190Z</updated>
+    
+    <content type="html"><![CDATA[<p>##主要是记录常用的几个svn命令行命令</p>
+<ol>
+<li><code>svn add * --force</code> 将所有未版本化的文件添加到本地版本库中，主要用于新创建的文件；在UI工具中，当执行commit命令时，能够手动勾选要提交的文件，包括修改的以及新添加的，而在命令行中，需要使用该条命令，才能版本化新建的文件。</li>
+<li><code>svn commit -m &#39;...&#39;</code> 用于将本地文件提交到远程服务器。</li>
+<li><code>svn update</code> 将远程服务器的修改同步到本地。</li>
+<li><code>svn status</code> 查看最新做过那些修改。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##主要是记录常用的几个svn命令行命令&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;svn add * --force&lt;/code&gt; 将所有未版本化的文件添加到本地版本库中，主要用于新创建的文件；在UI工具中，当执行commit命令时，能够手动勾选要提交的文件，包括修改的以及新
+    
+    </summary>
+    
+    
+      <category term="svn" scheme="http://jadestrong.com/tags/svn/"/>
+    
+  </entry>
   
   <entry>
     <title>配置shell的环境变量</title>
@@ -93,7 +122,7 @@
     <link href="http://jadestrong.com/2016/09/22/%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86/"/>
     <id>http://jadestrong.com/2016/09/22/一些笔试题目整理/</id>
     <published>2016-09-22T03:52:49.000Z</published>
-    <updated>2016-09-28T15:07:30.539Z</updated>
+    <updated>2016-10-05T05:26:07.529Z</updated>
     
     <content type="html"><![CDATA[<p>1.假设需实现构造函数Scope，它的特性如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scopeA = <span class="keyword">new</span> Scope();</div><div class="line">scopeA.title = <span class="string">'My title'</span>;</div><div class="line"><span class="keyword">var</span> scopeB = scopeA.$clone();</div><div class="line"><span class="comment">// 实例有$clone方法用创建一个对象克隆，表现如下</span></div><div class="line"><span class="built_in">console</span>.log(scopeB.title === <span class="string">'My title'</span>); <span class="comment">//输出 true</span></div><div class="line">scopeA.title = <span class="string">'Home title'</span>;</div><div class="line"><span class="built_in">console</span>.log(scopeB.title === <span class="string">'Home title'</span>); <span class="comment">//输出true</span></div><div class="line"><span class="comment">//但是一旦scopeB主动修改它的属性，scopeA并不受影响</span></div><div class="line">scopeB.title = <span class="string">'scopeB title'</span>;</div><div class="line"><span class="built_in">console</span>.log(scopeA.title === <span class="string">'Home title'</span>); <span class="comment">//输出 true</span></div></pre></td></tr></table></figure></p>
 <p>请实现满足这个条件构造函数Scope（只需要实现上述描述需求即可）；<br>解答：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Scope</span>  (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Scope.prototype.$clone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.create(<span class="keyword">this</span>, &#123;</div><div class="line">        <span class="keyword">constructor</span>: &#123;</div><div class="line">            value: Scope,</div><div class="line">            enumerable: <span class="literal">true</span>,</div><div class="line">            writeable: <span class="literal">true</span>,</div><div class="line">            configurable: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -101,6 +130,11 @@
 <p>2.<img src="file:///home/jadestrong/Pictures/Screenshot from 2016-08-01 19-59-44.png" alt="题目图片"></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>3.使用HTML+CSS实现如图布局，border-width:5px,格子大小是50px*50px,hover时边框变成红色，需要考虑语义化。<br><img src="file:////home/jadestrong/Pictures/table.png" alt="题目图片"><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">     .table &#123;</div><div class="line">       display: table;</div><div class="line">       border-collapse: collapse;</div><div class="line">     &#125;</div><div class="line">     .row &#123;</div><div class="line">       display: table-row;</div><div class="line">     &#125;</div><div class="line">     .cell &#123;</div><div class="line">       display:table-cell;</div><div class="line">       width: 50px;</div><div class="line">       height: 50px;</div><div class="line">       border: 5px solid blue;</div><div class="line">     &#125;</div><div class="line">     .cell:hover &#123;</div><div class="line">       border-color: red;</div><div class="line">     &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"table"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cell"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>4.在移动端浏览器，页面采用click事件，会存在300ms的延迟，为什么（）；<br>A.浏览器先要阻止默认事件<br>B.浏览器底层在处理一些操作，等待操作完成后才能执行click操作<br>C.浏览器需要等待一段时间来判断是不是双击（double tap)<br>D.这是浏览器的一个BUG<br>5.MVC是一种常见的架构，以下描述错误的是？（）<br>A.只有Web系统才能使用MVC<br>B.只有能够保存在数据库里面的实体才能称之为模型（Model）<br>C.只有以HTML形式显示的页面才是视图（View）<br>D.模型变更之后，只有控制器（Controller）才能驱动视图变更或重新渲染视图<br>6.下面这段java代码的输出结果是？（不考虑java1.5之前的老版本和换行）(C)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Integer i1 = <span class="number">127</span>, i2 = <span class="number">127</span>, i3 = <span class="number">128</span>, i4 = <span class="number">128</span>;</div><div class="line">        System.out.println(i1 == i2);</div><div class="line">        System.out.println(i1.equals(i2));</div><div class="line">        System.out.println(i3 == i4);</div><div class="line">        System.out.println(i3.equals(i4));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>A.false true true true<br>B.true flase true true<br>C.true true false true<br>D.true true true false<br>7.以下这些树中，属于平衡二叉树的有那些？（）<br>A.红黑树<br>B.二叉查找树<br>C.B+树<br>D.二叉树<br>E.完全二叉树<br>8.以下javascript代码执行结果是？（A）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    x = <span class="number">2</span>;</div><div class="line">    y = <span class="number">2</span>;</div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(x == y);</div></pre></td></tr></table></figure>
+<p>A.TRUE B.FALSE C.浏览器脚本错误 D.null<br>9.下面代码，页面打开后能弹出alert(1)的有：（）<br>A.<code>&lt;iframe src=&quot;javascript:alert(1)&quot;&gt;&lt;/iframe&gt;</code><br>B.<code>&lt;img src=&quot;&quot; onerror=&quot;alert(1)&quot; /&gt;</code><br>C.IE下，<code>&lt;s style=&quot;top:expression(alert(1))&quot;&gt;&lt;/s&gt;</code><br>D.<code>&lt;div onclick=&quot;alert(1)&quot;&gt;&lt;/div&gt;</code></p>
 ]]></content>
     
     <summary type="html">
@@ -140,39 +174,27 @@
   </entry>
   
   <entry>
-    <title>360笔试</title>
-    <link href="http://jadestrong.com/2016/09/21/360%E7%AC%94%E8%AF%95/"/>
-    <id>http://jadestrong.com/2016/09/21/360笔试/</id>
-    <published>2016-09-21T00:43:23.000Z</published>
-    <updated>2016-09-21T00:43:23.999Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>360笔试练习题分析</title>
     <link href="http://jadestrong.com/2016/09/19/360%E7%AC%94%E8%AF%95%E7%BB%83%E4%B9%A0%E9%A2%98%E5%88%86%E6%9E%90/"/>
     <id>http://jadestrong.com/2016/09/19/360笔试练习题分析/</id>
     <published>2016-09-19T13:24:38.000Z</published>
-    <updated>2016-09-28T14:36:16.780Z</updated>
+    <updated>2016-10-05T05:24:07.632Z</updated>
     
     <content type="html"><![CDATA[<p>1.某一系统功能，需要一次性加载N（N在1000左右）个随机数，后续只对该集合执行遍历操作，最宜采用那种数据结构？ 链表</p>
 <p><strong>数组</strong>：连续存储，遍历快且方便，长度固定，缺点：移除和添加  对于长度固定，在某些场合也是一个缺陷；<br><strong>链表</strong>：离散存储，添加删除方便，空间和时间消耗大；双向链表较方便，但空间消耗更大；<br><strong>Hash表</strong>：数据离散存储，利用hash算法确定存储位置，遍历麻烦；<br><strong>二叉树</strong>：一般的查找遍历有深度优先和广度优先，遍历分前续、中序和后序，效率都差不多，如果数据经过排序，效率还是很不错的；<br><strong>图</strong>:表示物件与物件之间关系的数学对象，常用遍历方式有深度优先遍历和广度优先遍历，这两种方式对有向和无向图均可以，遍历查找不及前面任何一种结构。</p>
 <p>2.精俭排序，即一对数据不进行两次或两次以上的比较，以下是精俭排序的是： 插入排序、归并排序。</p>
 <p> <strong>插入排序</strong>： 该排序一般从第二个元素开始遍历，依次与前一个比较，若小于，则将该元素依次与前面所有的元素比较，将比它大的元素依次后移，为该元素腾出位置将其放入即可；若大于，则维持该顺序，所以在整个排序过程中，没两个元素之间仅比较了一次。即精俭排序。<br> <strong>归并排序</strong>:  精俭排序<br> <strong>选择排序</strong>： 一般选择排序都是将当前元素与其后面的所有元素进行比较，找出其后的最小元素，交互它们的位置，所以在比较过程中会进行多次比较，即非精俭排序。<br> <strong>堆排序</strong>: 非精俭排序</p>
-<h2 id="3-下面不是面向对象的基本原则的是：-抽象类原则（Abstruct-Class-principle"><a href="#3-下面不是面向对象的基本原则的是：-抽象类原则（Abstruct-Class-principle" class="headerlink" title="3. 下面不是面向对象的基本原则的是： 抽象类原则（Abstruct-Class principle);"></a>3. 下面不是面向对象的基本原则的是： 抽象类原则（Abstruct-Class principle);</h2><p><strong>单一职责原则（Single-Resposibility principle)</strong>：就是一个类只负责一个职责，只有一个引起变化的原因。<br><strong>开放封闭原则（Open-Closed principle)</strong>：这是所有面向对象原则的核心，软件设计本身所追求的目标就是封装变化，降低耦合，而开放封闭原则正是对这一目标的最直接提现。即软件实体应该对外扩展开放，而对修改封闭。<br><strong>依赖倒置原则（Dependecy-Inversion principle)</strong>:就是要依赖于抽象，不要依赖于具体。简单的说就是对抽象进行编程，不要对实现进行编程，这样就降低了客户与实现模块之间的耦合。一般就是下层依赖上层，下层的修改不会影响上层。<br><strong>迪米特法则</strong>：又叫最少知识原则（Least Knowledge principle),就是说一个对象应当对其他对象有尽可能少的了解。<br><strong>组合/聚集复用原则（Composite/Aggregate Reuse principle)</strong>：顾名思义，组合/聚合和继承是实现复用的两个基本途径，合成复用原则是指尽量使用合成/聚合，而不是使用继承。</p>
+<p>3.下面不是面向对象的基本原则的是： 抽象类原则（Abstruct-Class principle)。</p>
+<p><strong>单一职责原则（Single-Resposibility principle)</strong>：就是一个类只负责一个职责，只有一个引起变化的原因。<br><strong>开放封闭原则（Open-Closed principle)</strong>：这是所有面向对象原则的核心，软件设计本身所追求的目标就是封装变化，降低耦合，而开放封闭原则正是对这一目标的最直接提现。即软件实体应该对外扩展开放，而对修改封闭。<br><strong>依赖倒置原则（Dependecy-Inversion principle)</strong>:就是要依赖于抽象，不要依赖于具体。简单的说就是对抽象进行编程，不要对实现进行编程，这样就降低了客户与实现模块之间的耦合。一般就是下层依赖上层，下层的修改不会影响上层。<br><strong>迪米特法则</strong>：又叫最少知识原则（Least Knowledge principle),就是说一个对象应当对其他对象有尽可能少的了解。<br><strong>组合/聚集复用原则（Composite/Aggregate Reuse principle)</strong>：顾名思义，组合/聚合和继承是实现复用的两个基本途径，合成复用原则是指尽量使用合成/聚合，而不是使用继承。</p>
 <p>4.接口是一种引用类型，在接口中可以声明（），但不能声明公有的域或私有的成员变量。</p>
-<p>接口中只能包含方法、属性、索引器和事件的声明。不允许声明成员上的修饰符，即使是public都不行，因为接口成员都是公有的，也不能声明为虚拟和静态的。如果需要修饰符，最好让实现类来声明。所以对比一个类，接口的特性是：当定义一个类时，可以派生自多重接口，而你只能可以从一个类派生。</p>
+<p>接口中只能包含方法、属性、索引器和事件的声明。不允许声明成员上的修饰符，即使是public都不行，因为接口成员都是公有的，也不能声明为虚拟和静态的。如果需要修饰符，最好让实现类来声明。所以对比一个类，接口的特性是：当定义一个类时，可以派生自多重接口，而你只能从一个类派生。</p>
 <p>6.flash和js通过什么类，如何交互?</p>
 <p>使用ExternalInterface类进行交互。 </p>
 <p>7.设一个链表最常用的操作是在末尾插入结点和删除尾结点，则选用（）最节省时间？</p>
 <p>带头结点的双循环链表</p>
 <p>8.用有向无环图描述表达式（A+B)*((A+B)/A)，至少需要顶点的数目为（）。5</p>
-<p>一些额外的知识点记录下来：<br>1.对Web标准和W3C规范的理解？<br>Web标准简单来说分为三部分，即html,css和javascript，也就是常说的结构、表现和行为，web标准一般是把这三部分独立分开，使其更具有模块化。<br>W3C对web标准提出了规范化的要求，也就是在实际开发中的一些代码规范。<br>2.列举块级元素和行内元素：<br>行内元素：a，em，strong，span,i,b,img,input,label,select,textarea,sub,sup,q<br>块级元素：div,ul,li,dd,dt,dl,ol,p,h1~h6,table,form,fieldset<br>3.列举浏览器的内核：<br>IE：Trident,Chrome：Webkit，Firefox：Gecko<br>4.Ajax中post和get请求的区别？<br>使用get请求时，参数在URL中显示，而post不是，其将参数放在body中，不会直接显示出来；<br>使用get传递参数大小有限制，大约在1k左右，这个限制并不是http协议规定，应该是浏览器对URL的大小有限制，所以也就相当于限制了参数的大小，而post对参数大小没有限制；<br>get请求默认是会被浏览器缓存的，因为对于同一URL，浏览器会认为其结果是一样的，所以当第二次请求时会直接使用上一次的结果，而浏览器认为post请求是变动的，所以其请求不会被缓存，另外若要避免缓存get请求，则给get请求添加一个参数如?t=new Date(),可达到目的；<br>在使用ajax的xhr对象发送请求时，由于get请求不会在请求体中传递参数，所以需要传递一个null参数，而post直接传递参数即可；<br>post请求必须设置header的Content-type的值为application/x-form-www-urlencoded，确保服务器知道实体中有参数变量，可以使用xmlHttpRequest对象的setRequestHeader(‘Content-type’,’application/x-form-www-urlencoded’)。</p>
+<p>一些额外的知识点记录下来：<br>1.对Web标准和W3C规范的理解？<br>Web标准简单来说分为三部分，即html,css和javascript，也就是常说的结构、表现和行为，web标准一般是把这三部分独立分开，使其更具有模块化。<br>W3C对web标准提出了规范化的要求，也就是在实际开发中的一些代码规范。<br>2.列举块级元素和行内元素：<br>行内元素: a,em,strong,span,i,b,img,input,label,select,textarea<br>块级元素：div,ul,li,dd,dt,dl,ol,p,h1~h6,table,form,fieldset<br>3.列举浏览器的内核：<br>IE：Trident，Chrome：Webkit，Firefox：Gecko<br>4.Ajax中post和get请求的区别？<br>使用get请求时，参数在URL中显示，而post不是，其将参数放在body中，不会直接显示出来；<br>使用get传递参数大小有限制，大约在1k左右，这个限制并不是http协议规定，应该是浏览器对URL的大小有限制，所以也就相当于限制了参数的大小，而post对参数大小没有限制；<br>get请求默认是会被浏览器缓存的，因为对于同一URL，浏览器会认为其结果是一样的，所以当第二次请求时会直接使用上一次的结果，而浏览器认为post请求是变动的，所以其请求不会被缓存，另外若要避免缓存get请求，则给get请求添加一个参数如<code>?t=new Date()</code>,可达到目的；<br>在使用ajax的xhr对象发送请求时，由于get请求不会在请求体中传递参数，所以需要传递一个null参数，而post直接传递参数即可；<br>    post请求必须设置header的Content-Type的值为<code>application/x-form-www-urlencoded</code>，确保服务器知道实体中有参数变量，可以使用xmlHttpRequest对象的如下方法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//嵌入javascript代码总导致页面的解析错误！！</span></div><div class="line">setRequestHeader(<span class="string">'content-type'</span>,<span class="string">'application/x-form-www-urlencoded'</span>);</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -183,7 +205,7 @@
     </summary>
     
     
-      <category term="数据结构 java" scheme="http://jadestrong.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-java/"/>
+      <category term="datastructure、java" scheme="http://jadestrong.com/tags/datastructure%E3%80%81java/"/>
     
   </entry>
   
@@ -192,9 +214,9 @@
     <link href="http://jadestrong.com/2016/09/17/LocalStorage%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://jadestrong.com/2016/09/17/LocalStorage的使用/</id>
     <published>2016-09-17T03:48:29.000Z</published>
-    <updated>2016-09-21T01:03:45.769Z</updated>
+    <updated>2016-10-05T04:52:40.912Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="LocalStorage的使用"><a href="#LocalStorage的使用" class="headerlink" title="LocalStorage的使用"></a>LocalStorage的使用</h1><p>首先，了解一下localStorage的信息，它是Web Storage API的一部分，另一部分是sessionStorage。在使用上，这两者的API的是一样的，不过localStorage是可以用于离线存储数据，而sessionStorage当浏览器关闭时，数据会丢失。</p>
+    <content type="html"><![CDATA[<p>首先，了解一下localStorage的信息，它是Web Storage API的一部分，另一部分是sessionStorage。在使用上，这两者的API的是一样的，不过localStorage是可以用于离线存储数据，而sessionStorage当浏览器关闭时，数据会丢失。</p>
 <ul>
 <li>storage.getItem(key): 根据给定的key，返回存储的数据；</li>
 <li>storage.removeItem(key): 移除匹配key的数据；</li>
@@ -208,7 +230,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;LocalStorage的使用&quot;&gt;&lt;a href=&quot;#LocalStorage的使用&quot; class=&quot;headerlink&quot; title=&quot;LocalStorage的使用&quot;&gt;&lt;/a&gt;LocalStorage的使用&lt;/h1&gt;&lt;p&gt;首先，了解一下localStorag
+      &lt;p&gt;首先，了解一下localStorage的信息，它是Web Storage API的一部分，另一部分是sessionStorage。在使用上，这两者的API的是一样的，不过localStorage是可以用于离线存储数据，而sessionStorage当浏览器关闭时，数据会丢失
     
     </summary>
     
@@ -222,15 +244,16 @@
     <link href="http://jadestrong.com/2016/09/15/DIY%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84jQuery1/"/>
     <id>http://jadestrong.com/2016/09/15/DIY一个自己的jQuery1/</id>
     <published>2016-09-15T07:11:50.000Z</published>
-    <updated>2016-09-21T01:03:45.766Z</updated>
+    <updated>2016-10-05T04:53:25.358Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="DIY一个自己的jQuery1"><a href="#DIY一个自己的jQuery1" class="headerlink" title="DIY一个自己的jQuery1"></a>DIY一个自己的jQuery1</h1><p>jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如<code>jQuery</code>或着更常见的<code>$()</code>方法。下面我们自己探索下它是如何实现的。</p>
+    <content type="html"><![CDATA[<p>jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如<code>jQuery</code>或着更常见的<code>$()</code>方法。下面我们自己探索下它是如何实现的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var $div = $(&apos;div&apos;);</div><div class="line"></div><div class="line">(function() &#123;</div><div class="line">  var _jQuery = window.jQuery,</div><div class="line">      _$ = window.$;</div><div class="line"></div><div class="line">  var version = &apos;0.0.1&apos;,</div><div class="line">      jQuery = function(selector) &#123;</div><div class="line">        console.log(document.querySelector(selector));</div><div class="line">      &#125;;</div><div class="line">  jQuery.prototype = &#123;</div><div class="line">    jquery: version,</div><div class="line">    constructor: jQuery</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  window.$ = window.jQuery = function(selector) &#123;</div><div class="line">    return new jQuery(selector); // 在接口函数中定义了方法，而调用接口返回的是new初始化的实例</div><div class="line">  &#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;DIY一个自己的jQuery1&quot;&gt;&lt;a href=&quot;#DIY一个自己的jQuery1&quot; class=&quot;headerlink&quot; title=&quot;DIY一个自己的jQuery1&quot;&gt;&lt;/a&gt;DIY一个自己的jQuery1&lt;/h1&gt;&lt;p&gt;jQuery在调用的时候并没有让我们
+      &lt;p&gt;jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如&lt;code&gt;jQuery&lt;/code&gt;或着更常见的&lt;code&gt;$()&lt;/code&gt;方法。下面我们自己探索下它是如何实现的。&lt;/p&gt;
+&lt;figure class
     
     </summary>
     
@@ -244,19 +267,20 @@
     <link href="http://jadestrong.com/2016/09/14/jQuery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%901/"/>
     <id>http://jadestrong.com/2016/09/14/jQuery源码分析1/</id>
     <published>2016-09-14T13:50:32.000Z</published>
-    <updated>2016-09-21T01:03:45.769Z</updated>
+    <updated>2016-10-05T05:25:10.788Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="jQuery源码分析1"><a href="#jQuery源码分析1" class="headerlink" title="jQuery源码分析1"></a>jQuery源码分析1</h2><p>该部分分析一下jquery的选择器这块，试着分析一下，在实战中好像经常会考查这部分知识。</p>
+    <content type="html"><![CDATA[<p>该部分分析一下jquery的选择器这块，试着分析一下，在实战中好像经常会考查这部分知识。</p>
 <p>先从一个正则开始：<code>/^[^&lt;]*(&lt;[\w\W]+&gt;)[^&gt;]*$/</code>这个正则表达式所要匹配的是包含html元素的字符串。</p>
 <ul>
-<li>符合条件的字符串必须包含一个<code>&lt;&gt;</code>标签，对于位置并没有限定，<del>前后都可以有其他非<code>&lt;&gt;</code>字符</del>。<br>此处是前后结尾并没有任何限制，虽然指定了<code>^[^&lt;]</code>和<code>[^&gt;]$</code>，但是后面都跟了一个<code>*</code>表示可以有任意数量，当然包括0个，而里面则是一个标准的模式，必须是以<code>&lt;</code>和<code>&gt;</code>来开头和结尾的字符串，所以即使后面多跟一个<code>&gt;</code>也无所谓，因为它会匹配<code>[\w\W]+</code>,所以这个正则匹配的是一个包含html元素的字符串。</li>
+<li>符合条件的字符串必须包含一个<code>&lt;&gt;</code>标签，对于位置并没有限定，<del>前后都可以有其他非<code>&lt;、&gt;</code>字符</del>。<br>此处是前后结尾并没有任何限制，虽然指定了<code>^[^&lt;]</code>和<code>[^&gt;]$</code>，但是后面都跟了一个<code>*</code>表示可以有任意数量，当然包括0个，而里面则是一个标准的模式，必须是以<code>&lt;</code>和<code>&gt;</code>来开头和结尾的字符串，所以即使后面多跟一个<code>&gt;</code>也无所谓，因为它会匹配<code>[\w\W]+</code>,所以这个正则匹配的是一个包含html元素的字符串。</li>
 </ul>
 <p>再来看另一个正则表达式：<code>/^#([\w-]+)$/</code>,该表达式很明显是匹配一个ID选择器。该选择规定了选择器的规则，必须是由字母和-组成，且以#开头。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;jQuery源码分析1&quot;&gt;&lt;a href=&quot;#jQuery源码分析1&quot; class=&quot;headerlink&quot; title=&quot;jQuery源码分析1&quot;&gt;&lt;/a&gt;jQuery源码分析1&lt;/h2&gt;&lt;p&gt;该部分分析一下jquery的选择器这块，试着分析一下，在实战中好像经
+      &lt;p&gt;该部分分析一下jquery的选择器这块，试着分析一下，在实战中好像经常会考查这部分知识。&lt;/p&gt;
+&lt;p&gt;先从一个正则开始：&lt;code&gt;/^[^&amp;lt;]*(&amp;lt;[\w\W]+&amp;gt;)[^&amp;gt;]*$/&lt;/code&gt;这个正则表达式所要匹配的是包含html元素的字符串。
     
     </summary>
     
@@ -270,9 +294,9 @@
     <link href="http://jadestrong.com/2016/09/14/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/"/>
     <id>http://jadestrong.com/2016/09/14/Git的基本指令/</id>
     <published>2016-09-14T12:51:43.000Z</published>
-    <updated>2016-09-21T01:03:45.766Z</updated>
+    <updated>2016-10-05T04:56:36.206Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Git的基本指令之远程分支的拉取和本地分支的提交"><a href="#Git的基本指令之远程分支的拉取和本地分支的提交" class="headerlink" title="Git的基本指令之远程分支的拉取和本地分支的提交"></a>Git的基本指令之远程分支的拉取和本地分支的提交</h2><p>当我们在本地拥有多个分支时，需要知道我们当前是在哪一个分支，此时使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git branch -a</div><div class="line">//输出如下</div><div class="line">* source</div><div class="line">  remotes/origin/master</div><div class="line">  remotes/origin/source</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<p>当我们在本地拥有多个分支时，需要知道我们当前是在哪一个分支，此时使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git branch -a</div><div class="line">//输出如下</div><div class="line">* source</div><div class="line">  remotes/origin/master</div><div class="line">  remotes/origin/source</div></pre></td></tr></table></figure></p>
 <p>上面的输出显示，在远程端拥有两个分支，其一是master，这个是我们在创建Repo时生成的；<br>之后，我们又在远程端创建了一个source分支，在本例中是存放的Blog项目的源码，而master分支中则是我们博客的静态文件。</p>
 <p>所以，当我们创建了新的博客并部署之后，其实是将文件部署到了master的分支中，而对源码的备份则需要将代码push到source分支。</p>
 <p>而在远程端进行操作之后，又如何将远程分支同步到本地分支呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin source // 将远程指定分支source拉取到本地当前分支</div></pre></td></tr></table></figure></p>
@@ -282,7 +306,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Git的基本指令之远程分支的拉取和本地分支的提交&quot;&gt;&lt;a href=&quot;#Git的基本指令之远程分支的拉取和本地分支的提交&quot; class=&quot;headerlink&quot; title=&quot;Git的基本指令之远程分支的拉取和本地分支的提交&quot;&gt;&lt;/a&gt;Git的基本指令之远程分支的
+      &lt;p&gt;当我们在本地拥有多个分支时，需要知道我们当前是在哪一个分支，此时使用命令：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
     
     </summary>
     
@@ -323,13 +347,13 @@
     <link href="http://jadestrong.com/2016/09/12/React%E4%B9%8BAlt%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90/"/>
     <id>http://jadestrong.com/2016/09/12/React之Alt架构分析/</id>
     <published>2016-09-12T13:58:53.000Z</published>
-    <updated>2016-09-21T01:03:45.769Z</updated>
+    <updated>2016-10-03T14:24:26.270Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="React之Alt架构分析"><a href="#React之Alt架构分析" class="headerlink" title="React之Alt架构分析"></a>React之Alt架构分析</h2><p>在使用Alt时，首先需要实例化一个alt实例，将其定义为一个单例模块，然后对其做一些必要的配置，然后就可以将它导出，当在项目中需要时可以执行引入，而不用每次都实例化了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import Alt from &apos;alt&apos;;</div><div class="line">import makeFinalStore from &apos;alt-utils/lib/makeFinalStore&apos;;</div><div class="line"></div><div class="line">class Flux extends Alt &#123;</div><div class="line">	constructor(config) &#123;</div><div class="line">		super(config);</div><div class="line">		this.FinalStore = makeFinalStore(this);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const flux = new Flux();</div><div class="line"></div><div class="line">export default flux;</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<p>在使用Alt时，首先需要实例化一个alt实例，将其定义为一个单例模块，然后对其做一些必要的配置，然后就可以将它导出，当在项目中需要时可以执行引入，而不用每次都实例化了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import Alt from &apos;alt&apos;;</div><div class="line">import makeFinalStore from &apos;alt-utils/lib/makeFinalStore&apos;;</div><div class="line"></div><div class="line">class Flux extends Alt &#123;</div><div class="line">	constructor(config) &#123;</div><div class="line">		super(config);</div><div class="line">		this.FinalStore = makeFinalStore(this);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const flux = new Flux();</div><div class="line"></div><div class="line">export default flux;</div></pre></td></tr></table></figure></p>
 <p>在上面我们还使用了<code>alt-utils</code>的makeFinalStore,这个是用来监视所有的store都修改完毕之后，可以做最后处理。 ？</p>
 <p>当定义好了alt实例，下面是需要将它配置到React项目中去，需要在Provider中配置，首先介绍下Provider的概念，这是Alt架构的两个概念之一，另一个是connect负责将action等连接到组件中去。至于Provider更多的是一个可扩展接口，其实可以将其直接嵌入到组件中，但是区分开来更加容易定制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import AltContainer from &apos;alt-container&apos;;</div><div class="line">import chromeDebug from &apos;alt-utils/lib/chromeDebug&apos;;</div><div class="line">import alt from &apos;../../libs/alt&apos;;</div><div class="line">import setup from &apos;./setup&apos;;</div><div class="line"></div><div class="line">setup(alt); //这个用来对alt做一些通用的配置</div><div class="line"></div><div class="line">chromeDebug(alt); //这个是一个debug组件，结合chrome插件调试alt</div><div class="line"></div><div class="line">React.Pref = require(&apos;react-addons-perf&apos;); // 这个好像是性能分析工具</div><div class="line"></div><div class="line">export default (&#123;children&#125;) =&gt;</div><div class="line">	&lt;AltContainer flux=&#123;alt&#125;&gt;</div><div class="line">		&#123;children&#125;</div><div class="line">	&lt;/AltContainer&gt;</div></pre></td></tr></table></figure></p>
 <p>在导出部分，使用了<code>AltContainer</code>，这个东西可以为子组件传入<code>this.props</code>属性信息，可以分开定义，也可以使用我们定义的<code>alt</code>。</p>
-<p>在传入alt之前，我们需要将store绑定到alt中，这个操作就是在<code>setup.js</code>中做的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import NoteStore from &apos;../../stores/NoteStore&apos;;</div><div class="line"></div><div class="line">export default alt =&gt; &#123;</div><div class="line">	alt.addStore(&apos;NoteStore&apos;, NoteStore);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在传入alt之前，我们需要将store绑定到alt中，这个操作就是在<code>setup.js</code>中做的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> NoteStore <span class="keyword">from</span> <span class="string">'../../stores/NoteStore'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> alt =&gt; &#123;</div><div class="line">	alt.addStore(<span class="string">'NoteStore'</span>, NoteStore);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这样就会将NoteStore通过alt实例，在AltContainer中传入{children}中，在组件中可以通过<code>this.props</code>来访问。</p>
 <p><strong>注意：</strong>此处在参数传递中还有困惑，即：是将NoteStore直接传入了组件的<code>props</code>属性，还是通过<code>connect</code>函数来做的？ 在后面看来这些都是在connect中做的处理。这一点在主组件文件<code>app.jsx</code>中也可以看，组件App是作为参数传入了connect函数，而最后导出的是connect函数最终执行的结果，即将修订后的App组件返回并在后续进行渲染</p>
 <p>分析下connect函数所起的作用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line"></div><div class="line">export default (state, actions) =&gt; &#123;</div><div class="line">	if (typeof state === &apos;function&apos; || </div><div class="line">		(typeof state === &apos;object&apos; &amp;&amp; Object.keys(state).length)) &#123;</div><div class="line">		return target =&gt; connect(state, actions, target);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return target =&gt; props =&gt;(</div><div class="line">		&lt;target &#123;...Object.assign(&#123;&#125;, props, actions)&#125; /&gt;</div><div class="line">	);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function connect(state = () =&gt; &#123;&#125;, actions = &#123;&#125;, target) &#123;</div><div class="line">	class Connect extends React.Component &#123;</div><div class="line">		constructor() &#123;</div><div class="line">			super();</div><div class="line">			this.handleChange = this.handleChange.bind(this);</div><div class="line">		&#125;</div><div class="line">		componentDidMount() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			flux.FinalStore.listen(this.handleChange);</div><div class="line">		&#125;</div><div class="line">		componentWillUnMount() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			flux.FinalStore.unlisten(this.handleChange);</div><div class="line">		&#125;</div><div class="line">		render() &#123;</div><div class="line">			const &#123;flux&#125; = this.context;</div><div class="line">			const stores = flux.stores;</div><div class="line">			const composedStores = composeStores(stores);</div><div class="line"></div><div class="line">			return React.createElement(target, </div><div class="line">				&#123;...Object.assign(&#123;&#125;, this.props, state(composedStores), actions)&#125;);</div><div class="line">		&#125;</div><div class="line">		handleChange() &#123;</div><div class="line">			this.forceUpdate();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	Connect.contextTypes = &#123;</div><div class="line">		flux: React.PropTypes.object.isRequired</div><div class="line">	&#125;</div><div class="line">	return Connect;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function composeStores(stores) &#123;</div><div class="line">	let ret = &#123;&#125;;</div><div class="line">    </div><div class="line">	Object.keys(stores).forEach(k =&gt; &#123;</div><div class="line">		const store = stores[k];</div><div class="line">		ret = Object.assign(&#123;&#125;, ret, store.getState());</div><div class="line">	&#125;);</div><div class="line"></div><div class="line">	return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -341,7 +365,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;React之Alt架构分析&quot;&gt;&lt;a href=&quot;#React之Alt架构分析&quot; class=&quot;headerlink&quot; title=&quot;React之Alt架构分析&quot;&gt;&lt;/a&gt;React之Alt架构分析&lt;/h2&gt;&lt;p&gt;在使用Alt时，首先需要实例化一个alt实例，将其定
+      &lt;p&gt;在使用Alt时，首先需要实例化一个alt实例，将其定义为一个单例模块，然后对其做一些必要的配置，然后就可以将它导出，当在项目中需要时可以执行引入，而不用每次都实例化了。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
     
     </summary>
     
@@ -373,29 +397,6 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;在使用Hexo进行博客部署时，仅将生成的静态博客文件上传到了github中，通过GitHub Page进行展示，但是项目的源码都是存储到本地的，所以这样做不是很安全，完全有可能发生源码丢失这种问题，所以在这里建立github分支来存储源码。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我的第一篇在线博客</title>
-    <link href="http://jadestrong.com/2016/08/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%9C%A8%E7%BA%BF%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://jadestrong.com/2016/08/09/我的第一篇在线博客/</id>
-    <published>2016-08-09T03:28:19.000Z</published>
-    <updated>2016-09-21T01:03:45.772Z</updated>
-    
-    <content type="html"><![CDATA[<p>##难道就这么写吗</p>
-<p>搭建自己的博客，还得卖域名啊，这么贵。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function () &#123;</div><div class="line">    console.log(&apos;Hello World!&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;##难道就这么写吗&lt;/p&gt;
-&lt;p&gt;搭建自己的博客，还得卖域名啊，这么贵。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div
     
     </summary>
     
