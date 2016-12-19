@@ -1,11 +1,10 @@
 ---
 title: 配置shell的环境变量
-date: 2016-09-24 16:24:33
+nano: 2016-09-24 16:24:33
 tags: emacs shell env
 ---
 
 在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了`~/.npm-global`目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：
-
 ``` shell
 #创建存放文件夹
 mkdir ~/.npm-gloabl
@@ -27,10 +26,8 @@ source ~/.profile
 注：在检查环境变量时，在命令行中直接的输入 `env`即可查看。
 
 这两个问题都需要设计emacs的环境变量来解决：改环境变量有两种方法，一种是使用 `exec-path-from-shell`，然而本人并没有改成功，应该是没弄明白文档中是怎么用的，另一种是使用`Exec Path`,也就是直接在配置文件中设置环境变量，如 `.emacs`或 `init.el`,又或者是supacemacs的`.init.el`的user-config中设置如下：
-
 ``` emacs-lisp
 (setqenv "PATH" (concat (getenv "PATH") ":/home/jadestong/.npm-global/bin"))
 (setq exec-path (append exec-path '("/home/jadestrong/.npm-global/bin")))
 ```
-
 上面设置了两个变量，一个是PATH，这个是给shell程序使用的，也就是eshell以及emacs中的shell都可以调用npm安装的全局命令了，有了这个应该就不用再修改 `.bashrc`文件了；另一个exec-path就是给elisp程序使用的了，对于一些如locate等系统命令都是走的这条路，所以在使用 `js-beautify`等命令时都需要设置这个变量。

@@ -5,8 +5,6 @@ tags: react、alt
 
 ---
 
-## React之Alt架构分析
-
 在使用Alt时，首先需要实例化一个alt实例，将其定义为一个单例模块，然后对其做一些必要的配置，然后就可以将它导出，当在项目中需要时可以执行引入，而不用每次都实例化了。
 ```
 import Alt from 'alt';
@@ -47,7 +45,7 @@ export default ({children}) =>
 在导出部分，使用了`AltContainer`，这个东西可以为子组件传入`this.props`属性信息，可以分开定义，也可以使用我们定义的`alt`。
 
 在传入alt之前，我们需要将store绑定到alt中，这个操作就是在`setup.js`中做的：
-```
+```javascript
 import NoteStore from '../../stores/NoteStore';
 
 export default alt => {

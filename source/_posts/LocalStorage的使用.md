@@ -4,8 +4,6 @@ date: 2016-09-17 11:48:29
 tags: localStorage,wrap 
 ---
 
-# LocalStorage的使用
-
 首先，了解一下localStorage的信息，它是Web Storage API的一部分，另一部分是sessionStorage。在使用上，这两者的API的是一样的，不过localStorage是可以用于离线存储数据，而sessionStorage当浏览器关闭时，数据会丢失。
 
 - storage.getItem(key): 根据给定的key，返回存储的数据；
