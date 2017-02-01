@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jadestrong.com/"/>
-  <updated>2017-02-01T02:36:38.777Z</updated>
+  <updated>2017-02-01T02:57:59.389Z</updated>
   <id>http://jadestrong.com/</id>
   
   <author>
@@ -16,13 +16,67 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://jadestrong.com/2017/02/01/hello-world/"/>
+    <id>http://jadestrong.com/2017/02/01/hello-world/</id>
+    <published>2017-02-01T02:57:59.389Z</published>
+    <updated>2017-02-01T02:57:59.389Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>配置shell的环境变量</title>
+    <link href="http://jadestrong.com/2017/02/01/%E9%85%8D%E7%BD%AEshell%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
+    <id>http://jadestrong.com/2017/02/01/配置shell的环境变量/</id>
+    <published>2017-02-01T02:54:07.389Z</published>
+    <updated>2017-02-01T02:54:07.389Z</updated>
+    
+    <content type="html"><![CDATA[<p>在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了<code>~/.npm-global</code>目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#创建存放文件夹</div><div class="line">mkdir ~/.npm-gloabl</div><div class="line">#配置npm使用该文件夹</div><div class="line">npm set prefix &apos;~/.npm-global&apos;</div><div class="line">#打开或着创建一个~/.profile文件，添加如下命令</div><div class="line">export PATH=~/.npm-global/bin:$PATH</div><div class="line">#回到命令行，更新系统变量</div><div class="line">source ~/.profile</div></pre></td></tr></table></figure></p>
+<p>解读一下上面的命令：<br><code>$PATH</code>就是系统的命令地址等，而export句命令是将 <code>~/.npm-global/bin</code>拼接到已有的路径上，再重新赋值给该变量。 <code>:</code>是变量之间的分割符。</p>
+<p>上面都是配置到 <code>~/.profile</code>文件下的，系统会到启动时读取该文件，所以系统的终端程序能够读取里面的配置。但是在emacs中嵌入的shell却读取不到在该文件中配置的语句，所以我在 <code>~/.bashrc</code>文件下，把上面那句加上了，这样每个shell终端启动应该都可以读取这个配置。</p>
+<p>另外一个问题是，emacs内置的eshell程序却只能读取到系统级别的命令，如 <code>/usr/bin</code>等目录下的命令，所以通过npm指定的命令还是不起作用，目前可以找到的方法是为emacs添加环境变量来解决，但怎么加，还得再研究下。<br>由于上面这个问题导致的，通过npm安装的全局命令如<code>js-beautify</code>等命令不能使用，例如在<code>web-beautify</code>这个elisp插件会调用该命令去处理文件的格式化，由于访问不到该命令所以会失败，提示让通过 <code>npm -g install js-beautify</code>来安装，但是我们已经安装了，所以还是需要继续解决这个问题。</p>
+<p>注：在检查环境变量时，在命令行中直接的输入 <code>env</code>即可查看。</p>
+<p>这两个问题都需要设计emacs的环境变量来解决：改环境变量有两种方法，一种是使用 <code>exec-path-from-shell</code>，然而本人并没有改成功，应该是没弄明白文档中是怎么用的，另一种是使用<code>Exec Path</code>,也就是直接在配置文件中设置环境变量，如 <code>.emacs</code>或 <code>init.el</code>,又或者是supacemacs的<code>.init.el</code>的user-config中设置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(setqenv &quot;PATH&quot; (concat (getenv &quot;PATH&quot;) &quot;:/home/jadestong/.npm-global/bin&quot;))</div><div class="line">(setq exec-path (append exec-path &apos;(&quot;/home/jadestrong/.npm-global/bin&quot;)))</div></pre></td></tr></table></figure></p>
+<p>上面设置了两个变量，一个是PATH，这个是给shell程序使用的，也就是eshell以及emacs中的shell都可以调用npm安装的全局命令了，有了这个应该就不用再修改 <code>.bashrc</code>文件了；另一个exec-path就是给elisp程序使用的了，对于一些如locate等系统命令都是走的这条路，所以在使用 <code>js-beautify</code>等命令时都需要设置这个变量。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了&lt;code&gt;~/.npm-global&lt;/code&gt;目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="emacs shell env" scheme="http://jadestrong.com/tags/emacs-shell-env/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git保证fork的项目和原项目保持同步</title>
     <link href="http://jadestrong.com/2017/02/01/Git%E4%BF%9D%E8%AF%81fork%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%92%8C%E5%8E%9F%E9%A1%B9%E7%9B%AE%E4%BF%9D%E6%8C%81%E5%90%8C%E6%AD%A5/"/>
     <id>http://jadestrong.com/2017/02/01/Git保证fork的项目和原项目保持同步/</id>
     <published>2017-02-01T02:29:29.000Z</published>
-    <updated>2017-02-01T02:36:38.777Z</updated>
+    <updated>2017-02-01T02:52:36.604Z</updated>
     
-    <content type="html"><![CDATA[<p>问题描述：当我们在github上fork出一个项目后，如果原有的项目更新了，怎样保持我们fork出的项目可以和原项目保持同步呢？</p>
+    <content type="html"><![CDATA[<p>问题描述：当我们在github上fork出一个项目后，如果原有的项目更新了，怎样保持我们fork出的项目可以和原项目保持同步呢？<br><a id="more"></a></p>
 <ol>
 <li>在Fork的代码库中添加上游代码库的remote源，该操作只需要执行一次，<code>git remote add upstream https://github.com/jadestrong/spacemacs-private.git</code>;</li>
 <li>将本地的修改commit；</li>
@@ -33,9 +87,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;问题描述：当我们在github上fork出一个项目后，如果原有的项目更新了，怎样保持我们fork出的项目可以和原项目保持同步呢？&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在Fork的代码库中添加上游代码库的remote源，该操作只需要执行一次，&lt;code&gt;git remote add u
+      &lt;p&gt;问题描述：当我们在github上fork出一个项目后，如果原有的项目更新了，怎样保持我们fork出的项目可以和原项目保持同步呢？&lt;br&gt;
     
     </summary>
     
@@ -72,47 +124,20 @@
   </entry>
   
   <entry>
-    <title>配置shell的环境变量</title>
-    <link href="http://jadestrong.com/2016/09/28/%E9%85%8D%E7%BD%AEshell%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
-    <id>http://jadestrong.com/2016/09/28/配置shell的环境变量/</id>
-    <published>2016-09-28T15:49:46.218Z</published>
-    <updated>2016-09-28T15:49:46.218Z</updated>
-    
-    <content type="html"><![CDATA[<p>在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了<code>~/.npm-global</code>目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#创建存放文件夹</div><div class="line">mkdir ~/.npm-gloabl</div><div class="line">#配置npm使用该文件夹</div><div class="line">npm set prefix &apos;~/.npm-global&apos;</div><div class="line">#打开或着创建一个~/.profile文件，添加如下命令</div><div class="line">export PATH=~/.npm-global/bin:$PATH</div><div class="line">#回到命令行，更新系统变量</div><div class="line">source ~/.profile</div></pre></td></tr></table></figure></p>
-<p>解读一下上面的命令：<br><code>$PATH</code>就是系统的命令地址等，而export句命令是将 <code>~/.npm-global/bin</code>拼接到已有的路径上，再重新赋值给该变量。 <code>:</code>是变量之间的分割符。</p>
-<p>上面都是配置到 <code>~/.profile</code>文件下的，系统会到启动时读取该文件，所以系统的终端程序能够读取里面的配置。但是在emacs中嵌入的shell却读取不到在该文件中配置的语句，所以我在 <code>~/.bashrc</code>文件下，把上面那句加上了，这样每个shell终端启动应该都可以读取这个配置。</p>
-<p>另外一个问题是，emacs内置的eshell程序却只能读取到系统级别的命令，如 <code>/usr/bin</code>等目录下的命令，所以通过npm指定的命令还是不起作用，目前可以找到的方法是为emacs添加环境变量来解决，但怎么加，还得再研究下。<br>由于上面这个问题导致的，通过npm安装的全局命令如<code>js-beautify</code>等命令不能使用，例如在<code>web-beautify</code>这个elisp插件会调用该命令去处理文件的格式化，由于访问不到该命令所以会失败，提示让通过 <code>npm -g install js-beautify</code>来安装，但是我们已经安装了，所以还是需要继续解决这个问题。</p>
-<p>注：在检查环境变量时，在命令行中直接的输入 <code>env</code>即可查看。</p>
-<p>这两个问题都需要设计emacs的环境变量来解决：改环境变量有两种方法，一种是使用 <code>exec-path-from-shell</code>，然而本人并没有改成功，应该是没弄明白文档中是怎么用的，另一种是使用<code>Exec Path</code>,也就是直接在配置文件中设置环境变量，如 <code>.emacs</code>或 <code>init.el</code>,又或者是supacemacs的<code>.init.el</code>的user-config中设置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(setqenv &quot;PATH&quot; (concat (getenv &quot;PATH&quot;) &quot;:/home/jadestong/.npm-global/bin&quot;))</div><div class="line">(setq exec-path (append exec-path &apos;(&quot;/home/jadestrong/.npm-global/bin&quot;)))</div></pre></td></tr></table></figure></p>
-<p>上面设置了两个变量，一个是PATH，这个是给shell程序使用的，也就是eshell以及emacs中的shell都可以调用npm安装的全局命令了，有了这个应该就不用再修改 <code>.bashrc</code>文件了；另一个exec-path就是给elisp程序使用的了，对于一些如locate等系统命令都是走的这条路，所以在使用 <code>js-beautify</code>等命令时都需要设置这个变量。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在配置npm的时候，为了解决使用npm安装包的权限问题，我们将所安装包都统一安装到了&lt;code&gt;~/.npm-global&lt;/code&gt;目录下，然后通过配置文件使得添加环境变量使得终端可以读取到npm安全的全局命令：&lt;br&gt;&lt;figure class=&quot;highlight 
-    
-    </summary>
-    
-    
-      <category term="emacs shell env" scheme="http://jadestrong.com/tags/emacs-shell-env/"/>
-    
-  </entry>
-  
-  <entry>
     <title>字谜问题求解</title>
     <link href="http://jadestrong.com/2016/09/26/%E5%AD%97%E8%B0%9C%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/"/>
     <id>http://jadestrong.com/2016/09/26/字谜问题求解/</id>
     <published>2016-09-26T03:40:39.000Z</published>
-    <updated>2016-09-28T15:06:11.505Z</updated>
+    <updated>2017-02-01T02:54:49.094Z</updated>
     
-    <content type="html"><![CDATA[<p>问题：输入是由一些字母构成的一个二维数组以及一组单词组成，目标是要找出字谜中的单词，这些单词可能是水平、垂直或演对角线上任何方向放置的。<br>求解如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> direction = [[<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>],[<span class="number">-1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">-1</span>],[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">-1</span>,<span class="number">-1</span>],[<span class="number">1</span>,<span class="number">-1</span>],[<span class="number">-1</span>,<span class="number">1</span>]];</div><div class="line"><span class="keyword">var</span> input = [<span class="string">'t h i s'</span>,<span class="string">'w a t s'</span>,<span class="string">'o a h g'</span>,<span class="string">'f g d t'</span>];</div><div class="line"><span class="keyword">var</span> i,j,k,l,m,n;</div><div class="line"><span class="keyword">var</span> len;</div><div class="line"><span class="keyword">var</span> results = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> matrix = [];</div><div class="line"><span class="comment">// 将输入转换为矩阵</span></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>, len = input.length;i &lt; len; i++) &#123;</div><div class="line">    matrix.push(input[i].split(<span class="string">' '</span>));</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(matrix);</div><div class="line"><span class="keyword">var</span> words = [<span class="string">'this'</span>, <span class="string">'two'</span>, <span class="string">'fat'</span>, <span class="string">'that'</span>];</div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; matrix.length; j++) &#123;</div><div class="line">    <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt; matrix[j].length;k++) &#123;</div><div class="line">        <span class="keyword">var</span> letter = matrix[j][k];</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'letter: '</span> + letter);</div><div class="line">        <span class="keyword">for</span> (m = <span class="number">0</span>; m &lt; direction.length;m++) &#123;</div><div class="line">            <span class="keyword">var</span> dirc = direction[m];</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'current direction is: '</span> + dirc);</div><div class="line">            <span class="keyword">for</span> (l = <span class="number">0</span>; l &lt; words.length; l++) &#123;</div><div class="line">                <span class="keyword">var</span> word = words[l];</div><div class="line">                <span class="comment">// 如果单词首字母与矩阵元素匹配，则查询其各个方向</span></div><div class="line">                <span class="keyword">if</span> (word[<span class="number">0</span>] == letter) &#123;</div><div class="line">                   	<span class="built_in">console</span>.log(word + <span class="string">' first character: '</span> + word[<span class="number">0</span>]);</div><div class="line">                    <span class="keyword">var</span> x = j, y = k;</div><div class="line">                    <span class="keyword">var</span> temp = [];</div><div class="line">                    <span class="xml"><span class="comment">&lt;!-- 在这里检查矩阵边界，由于是从0开始的，所以是要小于matrix的长度，而不是小于等于 --&gt;</span></span></div><div class="line">                   for (n = 0; n <span class="tag">&lt; <span class="attr">word.length</span> &amp;&amp; <span class="attr">x</span> &gt;</span>= 0 &amp;&amp; x <span class="tag">&lt; <span class="attr">matrix.length</span> &amp;&amp;</span></div><div class="line">                       <span class="attr">y</span> &gt;= 0 &amp;&amp; y <span class="tag">&lt; <span class="attr">matrix</span>[<span class="attr">j</span>]<span class="attr">.length</span> &amp;&amp; <span class="attr">word</span>[<span class="attr">n</span>] == <span class="string">matrix[x][y];</span> </span></div><div class="line">                       <span class="attr">n</span>++, <span class="attr">x</span> += <span class="string">dirc[0],</span> <span class="attr">y</span> += <span class="string">dirc[1])</span> &#123;</div><div class="line">                        <span class="attr">console.log</span>('<span class="attr">matrix</span>[' + <span class="attr">x</span> +']['+ <span class="attr">y</span> +']<span class="attr">:</span> ' + <span class="attr">matrix</span>[<span class="attr">x</span>][<span class="attr">y</span>]);</div><div class="line">                        <span class="attr">temp.push</span>([<span class="attr">x</span>,<span class="attr">y</span>]);</div><div class="line">                    &#125;</div><div class="line">                    <span class="attr">if</span> (<span class="attr">word.length</span> == <span class="string">temp.length)</span> &#123;</div><div class="line">                        <span class="attr">results</span>[<span class="attr">word</span>] = <span class="string">temp;</span></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="attr">for</span> (<span class="attr">var</span> <span class="attr">z</span> = <span class="string">0;</span> <span class="attr">z</span> &lt; <span class="attr">words.length</span>; <span class="attr">z</span>++) &#123;</div><div class="line">	<span class="attr">console.log</span>(<span class="attr">words</span>[<span class="attr">z</span>] + '\' <span class="attr">result:</span> ')</div><div class="line">    <span class="attr">console.log</span>(<span class="attr">results</span>[<span class="attr">words</span>[<span class="attr">z</span>]]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<p>问题：输入是由一些字母构成的一个二维数组以及一组单词组成，目标是要找出字谜中的单词，这些单词可能是水平、垂直或演对角线上任何方向放置的。<br>求解如下：<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> direction = [[<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>],[<span class="number">-1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">-1</span>],[<span class="number">1</span>,<span class="number">1</span>],[<span class="number">-1</span>,<span class="number">-1</span>],[<span class="number">1</span>,<span class="number">-1</span>],[<span class="number">-1</span>,<span class="number">1</span>]];</div><div class="line"><span class="keyword">var</span> input = [<span class="string">'t h i s'</span>,<span class="string">'w a t s'</span>,<span class="string">'o a h g'</span>,<span class="string">'f g d t'</span>];</div><div class="line"><span class="keyword">var</span> i,j,k,l,m,n;</div><div class="line"><span class="keyword">var</span> len;</div><div class="line"><span class="keyword">var</span> results = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> matrix = [];</div><div class="line"><span class="comment">// 将输入转换为矩阵</span></div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>, len = input.length;i &lt; len; i++) &#123;</div><div class="line">    matrix.push(input[i].split(<span class="string">' '</span>));</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(matrix);</div><div class="line"><span class="keyword">var</span> words = [<span class="string">'this'</span>, <span class="string">'two'</span>, <span class="string">'fat'</span>, <span class="string">'that'</span>];</div><div class="line"><span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; matrix.length; j++) &#123;</div><div class="line">    <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt; matrix[j].length;k++) &#123;</div><div class="line">        <span class="keyword">var</span> letter = matrix[j][k];</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'letter: '</span> + letter);</div><div class="line">        <span class="keyword">for</span> (m = <span class="number">0</span>; m &lt; direction.length;m++) &#123;</div><div class="line">            <span class="keyword">var</span> dirc = direction[m];</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'current direction is: '</span> + dirc);</div><div class="line">            <span class="keyword">for</span> (l = <span class="number">0</span>; l &lt; words.length; l++) &#123;</div><div class="line">                <span class="keyword">var</span> word = words[l];</div><div class="line">                <span class="comment">// 如果单词首字母与矩阵元素匹配，则查询其各个方向</span></div><div class="line">                <span class="keyword">if</span> (word[<span class="number">0</span>] == letter) &#123;</div><div class="line">                   	<span class="built_in">console</span>.log(word + <span class="string">' first character: '</span> + word[<span class="number">0</span>]);</div><div class="line">                    <span class="keyword">var</span> x = j, y = k;</div><div class="line">                    <span class="keyword">var</span> temp = [];</div><div class="line">                    <span class="xml"><span class="comment">&lt;!-- 在这里检查矩阵边界，由于是从0开始的，所以是要小于matrix的长度，而不是小于等于 --&gt;</span></span></div><div class="line">                   for (n = 0; n <span class="tag">&lt; <span class="attr">word.length</span> &amp;&amp; <span class="attr">x</span> &gt;</span>= 0 &amp;&amp; x <span class="tag">&lt; <span class="attr">matrix.length</span> &amp;&amp;</span></div><div class="line">                       <span class="attr">y</span> &gt;= 0 &amp;&amp; y <span class="tag">&lt; <span class="attr">matrix</span>[<span class="attr">j</span>]<span class="attr">.length</span> &amp;&amp; <span class="attr">word</span>[<span class="attr">n</span>] == <span class="string">matrix[x][y];</span> </span></div><div class="line">                       <span class="attr">n</span>++, <span class="attr">x</span> += <span class="string">dirc[0],</span> <span class="attr">y</span> += <span class="string">dirc[1])</span> &#123;</div><div class="line">                        <span class="attr">console.log</span>('<span class="attr">matrix</span>[' + <span class="attr">x</span> +']['+ <span class="attr">y</span> +']<span class="attr">:</span> ' + <span class="attr">matrix</span>[<span class="attr">x</span>][<span class="attr">y</span>]);</div><div class="line">                        <span class="attr">temp.push</span>([<span class="attr">x</span>,<span class="attr">y</span>]);</div><div class="line">                    &#125;</div><div class="line">                    <span class="attr">if</span> (<span class="attr">word.length</span> == <span class="string">temp.length)</span> &#123;</div><div class="line">                        <span class="attr">results</span>[<span class="attr">word</span>] = <span class="string">temp;</span></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="attr">for</span> (<span class="attr">var</span> <span class="attr">z</span> = <span class="string">0;</span> <span class="attr">z</span> &lt; <span class="attr">words.length</span>; <span class="attr">z</span>++) &#123;</div><div class="line">	<span class="attr">console.log</span>(<span class="attr">words</span>[<span class="attr">z</span>] + '\' <span class="attr">result:</span> ')</div><div class="line">    <span class="attr">console.log</span>(<span class="attr">results</span>[<span class="attr">words</span>[<span class="attr">z</span>]]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这个解法是检查每一个有序三元组（行、列、方向），验证是否有单词存在。如上，嵌套了大量的for循环，但这是最直观的解法。<br>可以学习到的思路是：如何处理矩阵中8个方向的遍历，我们使用代表8个方向是坐标的加减来作各个方向上的移动，然后检查边界即可。</p>
 <p>也可以这样，对于每一个尚未越出谜板边缘的有序四元组（行、列、方向、字符数），我们可以测试是否所指的单词在单词表上。这也会导致大量嵌套的for循环。如果在任意单词中的最大字符数已知，那么该算法有可能节省一些时间。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;问题：输入是由一些字母构成的一个二维数组以及一组单词组成，目标是要找出字谜中的单词，这些单词可能是水平、垂直或演对角线上任何方向放置的。&lt;br&gt;求解如下：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
+      &lt;p&gt;问题：输入是由一些字母构成的一个二维数组以及一组单词组成，目标是要找出字谜中的单词，这些单词可能是水平、垂直或演对角线上任何方向放置的。&lt;br&gt;求解如下：&lt;br&gt;
     
     </summary>
     
@@ -126,16 +151,16 @@
     <link href="http://jadestrong.com/2016/09/26/%E9%80%89%E6%8B%A9%E7%AC%ACk%E4%B8%AA%E6%9C%80%E5%A4%A7%E6%95%B0/"/>
     <id>http://jadestrong.com/2016/09/26/选择第k个最大数/</id>
     <published>2016-09-25T16:31:11.000Z</published>
-    <updated>2016-09-28T15:10:39.118Z</updated>
+    <updated>2017-02-01T02:55:30.493Z</updated>
     
-    <content type="html"><![CDATA[<p>给定一组N个数，找出其中第k个最大数？<br>最直观的做法是对这N个数进行降序排序，然后输出第k个数即可。<br>另一种是构建一个临时数组存放取出k个数，进行降序排序,然后依次读取剩余的数，比较其与临时数组中的第k个数，若小则放弃，否则安装选择排序的思路对该数进行排序，最后将最后的一个数移除，使得数组始终保持在k个，则最终的结果即是临时数组的第k个数。<br>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> input = [];</div><div class="line"><span class="keyword">var</span> max = <span class="number">10</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">0</span>; m &lt; max; m++) &#123;</div><div class="line">	input.push(<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * max));</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'full input array: '</span> + input);</div><div class="line"><span class="keyword">var</span> temp = [];</div><div class="line"><span class="keyword">var</span> k = <span class="built_in">Math</span>.floor(input.length / <span class="number">2</span>);</div><div class="line"><span class="keyword">var</span> i,j;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++) &#123;</div><div class="line">    temp.push(input.pop());</div><div class="line">&#125;</div><div class="line">temp.sort(<span class="function"><span class="keyword">function</span>(<span class="params">v1, v2</span>) </span>&#123;<span class="keyword">return</span> v2 - v1;&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Get the k elements and sort them: '</span> + temp);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Last some elemenets which will be inserted in temp: '</span> + input);</div><div class="line">input.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (item &gt; temp[k - <span class="number">1</span>]) &#123;</div><div class="line">        <span class="comment">//在这里使用temp[j]&lt;item来做for循环的判定条件值得学习，使得代码更简洁</span></div><div class="line">       <span class="keyword">for</span> (j = k - <span class="number">1</span>; temp[j] &lt; item; j--) </div><div class="line">       		temp[j+<span class="number">1</span>] = temp[j];</div><div class="line">       temp[j+<span class="number">1</span>] = item; <span class="comment">//重中之重，记住是插入到j+1的位置</span></div><div class="line">       temp.pop();</div><div class="line">       <span class="built_in">console</span>.log(<span class="string">'every time insert into a new element, the results is: '</span> + temp);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(temp);</div><div class="line"><span class="built_in">console</span>.log(temp[k - <span class="number">1</span>]);</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<p>给定一组N个数，找出其中第k个最大数？<br>最直观的做法是对这N个数进行降序排序，然后输出第k个数即可。<br>另一种是构建一个临时数组存放取出k个数，进行降序排序,然后依次读取剩余的数，比较其与临时数组中的第k个数，若小则放弃，否则安装选择排序的思路对该数进行排序，最后将最后的一个数移除，使得数组始终保持在k个，则最终的结果即是临时数组的第k个数。<br><a id="more"></a><br>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> input = [];</div><div class="line"><span class="keyword">var</span> max = <span class="number">10</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> m = <span class="number">0</span>; m &lt; max; m++) &#123;</div><div class="line">	input.push(<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * max));</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'full input array: '</span> + input);</div><div class="line"><span class="keyword">var</span> temp = [];</div><div class="line"><span class="keyword">var</span> k = <span class="built_in">Math</span>.floor(input.length / <span class="number">2</span>);</div><div class="line"><span class="keyword">var</span> i,j;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; k; i++) &#123;</div><div class="line">    temp.push(input.pop());</div><div class="line">&#125;</div><div class="line">temp.sort(<span class="function"><span class="keyword">function</span>(<span class="params">v1, v2</span>) </span>&#123;<span class="keyword">return</span> v2 - v1;&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Get the k elements and sort them: '</span> + temp);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Last some elemenets which will be inserted in temp: '</span> + input);</div><div class="line">input.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (item &gt; temp[k - <span class="number">1</span>]) &#123;</div><div class="line">        <span class="comment">//在这里使用temp[j]&lt;item来做for循环的判定条件值得学习，使得代码更简洁</span></div><div class="line">       <span class="keyword">for</span> (j = k - <span class="number">1</span>; temp[j] &lt; item; j--) </div><div class="line">       		temp[j+<span class="number">1</span>] = temp[j];</div><div class="line">       temp[j+<span class="number">1</span>] = item; <span class="comment">//重中之重，记住是插入到j+1的位置</span></div><div class="line">       temp.pop();</div><div class="line">       <span class="built_in">console</span>.log(<span class="string">'every time insert into a new element, the results is: '</span> + temp);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(temp);</div><div class="line"><span class="built_in">console</span>.log(temp[k - <span class="number">1</span>]);</div></pre></td></tr></table></figure></p>
 <p>上面代码中注释的地方是容易出错的地方，需要好好体会。</p>
 <p>上面这两种方法在输入数据少的时候，效果还可以，但是当数据量超大了，就不能短时间内给出结果了，所以这两种方法都不算好的算法。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;给定一组N个数，找出其中第k个最大数？&lt;br&gt;最直观的做法是对这N个数进行降序排序，然后输出第k个数即可。&lt;br&gt;另一种是构建一个临时数组存放取出k个数，进行降序排序,然后依次读取剩余的数，比较其与临时数组中的第k个数，若小则放弃，否则安装选择排序的思路对该数进行排序，最后
+      &lt;p&gt;给定一组N个数，找出其中第k个最大数？&lt;br&gt;最直观的做法是对这N个数进行降序排序，然后输出第k个数即可。&lt;br&gt;另一种是构建一个临时数组存放取出k个数，进行降序排序,然后依次读取剩余的数，比较其与临时数组中的第k个数，若小则放弃，否则安装选择排序的思路对该数进行排序，最后将最后的一个数移除，使得数组始终保持在k个，则最终的结果即是临时数组的第k个数。&lt;br&gt;
     
     </summary>
     
@@ -149,10 +174,10 @@
     <link href="http://jadestrong.com/2016/09/22/%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86/"/>
     <id>http://jadestrong.com/2016/09/22/一些笔试题目整理/</id>
     <published>2016-09-22T03:52:49.000Z</published>
-    <updated>2016-10-05T05:26:07.529Z</updated>
+    <updated>2017-02-01T02:56:12.902Z</updated>
     
     <content type="html"><![CDATA[<p>1.假设需实现构造函数Scope，它的特性如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> scopeA = <span class="keyword">new</span> Scope();</div><div class="line">scopeA.title = <span class="string">'My title'</span>;</div><div class="line"><span class="keyword">var</span> scopeB = scopeA.$clone();</div><div class="line"><span class="comment">// 实例有$clone方法用创建一个对象克隆，表现如下</span></div><div class="line"><span class="built_in">console</span>.log(scopeB.title === <span class="string">'My title'</span>); <span class="comment">//输出 true</span></div><div class="line">scopeA.title = <span class="string">'Home title'</span>;</div><div class="line"><span class="built_in">console</span>.log(scopeB.title === <span class="string">'Home title'</span>); <span class="comment">//输出true</span></div><div class="line"><span class="comment">//但是一旦scopeB主动修改它的属性，scopeA并不受影响</span></div><div class="line">scopeB.title = <span class="string">'scopeB title'</span>;</div><div class="line"><span class="built_in">console</span>.log(scopeA.title === <span class="string">'Home title'</span>); <span class="comment">//输出 true</span></div></pre></td></tr></table></figure></p>
-<p>请实现满足这个条件构造函数Scope（只需要实现上述描述需求即可）；<br>解答：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Scope</span>  (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Scope.prototype.$clone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.create(<span class="keyword">this</span>, &#123;</div><div class="line">        <span class="keyword">constructor</span>: &#123;</div><div class="line">            value: Scope,</div><div class="line">            enumerable: <span class="literal">true</span>,</div><div class="line">            writeable: <span class="literal">true</span>,</div><div class="line">            configurable: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>请实现满足这个条件构造函数Scope（只需要实现上述描述需求即可）；<br><a id="more"></a><br>解答：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Scope</span>  (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Scope.prototype.$clone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.create(<span class="keyword">this</span>, &#123;</div><div class="line">        <span class="keyword">constructor</span>: &#123;</div><div class="line">            value: Scope,</div><div class="line">            enumerable: <span class="literal">true</span>,</div><div class="line">            writeable: <span class="literal">true</span>,</div><div class="line">            configurable: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <hr>
 <p>2.<img src="file:///home/jadestrong/Pictures/Screenshot from 2016-08-01 19-59-44.png" alt="题目图片"></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -166,34 +191,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;1.假设需实现构造函数Scope，它的特性如下：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://jadestrong.com/2016/09/21/hello-world/"/>
-    <id>http://jadestrong.com/2016/09/21/hello-world/</id>
-    <published>2016-09-21T01:03:45.769Z</published>
-    <updated>2016-09-21T01:03:45.769Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;1.假设需实现构造函数Scope，它的特性如下：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; scopeA = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Scope();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;scopeA.title = &lt;span class=&quot;string&quot;&gt;&#39;My title&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; scopeB = scopeA.$clone();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 实例有$clone方法用创建一个对象克隆，表现如下&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(scopeB.title === &lt;span class=&quot;string&quot;&gt;&#39;My title&#39;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//输出 true&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;scopeA.title = &lt;span class=&quot;string&quot;&gt;&#39;Home title&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(scopeB.title === &lt;span class=&quot;string&quot;&gt;&#39;Home title&#39;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//输出true&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//但是一旦scopeB主动修改它的属性，scopeA并不受影响&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;scopeB.title = &lt;span class=&quot;string&quot;&gt;&#39;scopeB title&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(scopeA.title === &lt;span class=&quot;string&quot;&gt;&#39;Home title&#39;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//输出 true&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;请实现满足这个条件构造函数Scope（只需要实现上述描述需求即可）；&lt;br&gt;
     
     </summary>
     
@@ -205,10 +204,10 @@
     <link href="http://jadestrong.com/2016/09/19/360%E7%AC%94%E8%AF%95%E7%BB%83%E4%B9%A0%E9%A2%98%E5%88%86%E6%9E%90/"/>
     <id>http://jadestrong.com/2016/09/19/360笔试练习题分析/</id>
     <published>2016-09-19T13:24:38.000Z</published>
-    <updated>2016-10-05T05:24:07.632Z</updated>
+    <updated>2017-02-01T02:56:41.708Z</updated>
     
     <content type="html"><![CDATA[<p>1.某一系统功能，需要一次性加载N（N在1000左右）个随机数，后续只对该集合执行遍历操作，最宜采用那种数据结构？ 链表</p>
-<p><strong>数组</strong>：连续存储，遍历快且方便，长度固定，缺点：移除和添加  对于长度固定，在某些场合也是一个缺陷；<br><strong>链表</strong>：离散存储，添加删除方便，空间和时间消耗大；双向链表较方便，但空间消耗更大；<br><strong>Hash表</strong>：数据离散存储，利用hash算法确定存储位置，遍历麻烦；<br><strong>二叉树</strong>：一般的查找遍历有深度优先和广度优先，遍历分前续、中序和后序，效率都差不多，如果数据经过排序，效率还是很不错的；<br><strong>图</strong>:表示物件与物件之间关系的数学对象，常用遍历方式有深度优先遍历和广度优先遍历，这两种方式对有向和无向图均可以，遍历查找不及前面任何一种结构。</p>
+<p><strong>数组</strong>：连续存储，遍历快且方便，长度固定，缺点：移除和添加  对于长度固定，在某些场合也是一个缺陷；<br><strong>链表</strong>：离散存储，添加删除方便，空间和时间消耗大；双向链表较方便，但空间消耗更大；<br><strong>Hash表</strong>：数据离散存储，利用hash算法确定存储位置，遍历麻烦；<br><strong>二叉树</strong>：一般的查找遍历有深度优先和广度优先，遍历分前续、中序和后序，效率都差不多，如果数据经过排序，效率还是很不错的；<br><strong>图</strong>:表示物件与物件之间关系的数学对象，常用遍历方式有深度优先遍历和广度优先遍历，这两种方式对有向和无向图均可以，遍历查找不及前面任何一种结构。<br><a id="more"></a></p>
 <p>2.精俭排序，即一对数据不进行两次或两次以上的比较，以下是精俭排序的是： 插入排序、归并排序。</p>
 <p> <strong>插入排序</strong>： 该排序一般从第二个元素开始遍历，依次与前一个比较，若小于，则将该元素依次与前面所有的元素比较，将比它大的元素依次后移，为该元素腾出位置将其放入即可；若大于，则维持该顺序，所以在整个排序过程中，没两个元素之间仅比较了一次。即精俭排序。<br> <strong>归并排序</strong>:  精俭排序<br> <strong>选择排序</strong>： 一般选择排序都是将当前元素与其后面的所有元素进行比较，找出其后的最小元素，交互它们的位置，所以在比较过程中会进行多次比较，即非精俭排序。<br> <strong>堆排序</strong>: 非精俭排序</p>
 <p>3.下面不是面向对象的基本原则的是： 抽象类原则（Abstruct-Class principle)。</p>
@@ -227,7 +226,7 @@
     <summary type="html">
     
       &lt;p&gt;1.某一系统功能，需要一次性加载N（N在1000左右）个随机数，后续只对该集合执行遍历操作，最宜采用那种数据结构？ 链表&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;数组&lt;/strong&gt;：连续存储，遍历快且方便，长度固定，缺点：移除和添加  对于长度固定，在某些场合也是一个缺陷；&lt;br
+&lt;p&gt;&lt;strong&gt;数组&lt;/strong&gt;：连续存储，遍历快且方便，长度固定，缺点：移除和添加  对于长度固定，在某些场合也是一个缺陷；&lt;br&gt;&lt;strong&gt;链表&lt;/strong&gt;：离散存储，添加删除方便，空间和时间消耗大；双向链表较方便，但空间消耗更大；&lt;br&gt;&lt;strong&gt;Hash表&lt;/strong&gt;：数据离散存储，利用hash算法确定存储位置，遍历麻烦；&lt;br&gt;&lt;strong&gt;二叉树&lt;/strong&gt;：一般的查找遍历有深度优先和广度优先，遍历分前续、中序和后序，效率都差不多，如果数据经过排序，效率还是很不错的；&lt;br&gt;&lt;strong&gt;图&lt;/strong&gt;:表示物件与物件之间关系的数学对象，常用遍历方式有深度优先遍历和广度优先遍历，这两种方式对有向和无向图均可以，遍历查找不及前面任何一种结构。&lt;br&gt;
     
     </summary>
     
@@ -241,9 +240,9 @@
     <link href="http://jadestrong.com/2016/09/17/LocalStorage%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://jadestrong.com/2016/09/17/LocalStorage的使用/</id>
     <published>2016-09-17T03:48:29.000Z</published>
-    <updated>2016-10-05T04:52:40.912Z</updated>
+    <updated>2017-02-01T02:57:06.967Z</updated>
     
-    <content type="html"><![CDATA[<p>首先，了解一下localStorage的信息，它是Web Storage API的一部分，另一部分是sessionStorage。在使用上，这两者的API的是一样的，不过localStorage是可以用于离线存储数据，而sessionStorage当浏览器关闭时，数据会丢失。</p>
+    <content type="html"><![CDATA[<p>首先，了解一下localStorage的信息，它是Web Storage API的一部分，另一部分是sessionStorage。在使用上，这两者的API的是一样的，不过localStorage是可以用于离线存储数据，而sessionStorage当浏览器关闭时，数据会丢失。<br><a id="more"></a></p>
 <ul>
 <li>storage.getItem(key): 根据给定的key，返回存储的数据；</li>
 <li>storage.removeItem(key): 移除匹配key的数据；</li>
@@ -257,7 +256,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;首先，了解一下localStorage的信息，它是Web Storage API的一部分，另一部分是sessionStorage。在使用上，这两者的API的是一样的，不过localStorage是可以用于离线存储数据，而sessionStorage当浏览器关闭时，数据会丢失
+      &lt;p&gt;首先，了解一下localStorage的信息，它是Web Storage API的一部分，另一部分是sessionStorage。在使用上，这两者的API的是一样的，不过localStorage是可以用于离线存储数据，而sessionStorage当浏览器关闭时，数据会丢失。&lt;br&gt;
     
     </summary>
     
@@ -271,16 +270,15 @@
     <link href="http://jadestrong.com/2016/09/15/DIY%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84jQuery1/"/>
     <id>http://jadestrong.com/2016/09/15/DIY一个自己的jQuery1/</id>
     <published>2016-09-15T07:11:50.000Z</published>
-    <updated>2016-10-05T04:53:25.358Z</updated>
+    <updated>2017-02-01T02:57:29.253Z</updated>
     
-    <content type="html"><![CDATA[<p>jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如<code>jQuery</code>或着更常见的<code>$()</code>方法。下面我们自己探索下它是如何实现的。</p>
+    <content type="html"><![CDATA[<p>jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如<code>jQuery</code>或着更常见的<code>$()</code>方法。下面我们自己探索下它是如何实现的。<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var $div = $(&apos;div&apos;);</div><div class="line"></div><div class="line">(function() &#123;</div><div class="line">  var _jQuery = window.jQuery,</div><div class="line">      _$ = window.$;</div><div class="line"></div><div class="line">  var version = &apos;0.0.1&apos;,</div><div class="line">      jQuery = function(selector) &#123;</div><div class="line">        console.log(document.querySelector(selector));</div><div class="line">      &#125;;</div><div class="line">  jQuery.prototype = &#123;</div><div class="line">    jquery: version,</div><div class="line">    constructor: jQuery</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  window.$ = window.jQuery = function(selector) &#123;</div><div class="line">    return new jQuery(selector); // 在接口函数中定义了方法，而调用接口返回的是new初始化的实例</div><div class="line">  &#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如&lt;code&gt;jQuery&lt;/code&gt;或着更常见的&lt;code&gt;$()&lt;/code&gt;方法。下面我们自己探索下它是如何实现的。&lt;/p&gt;
-&lt;figure class
+      &lt;p&gt;jQuery在调用的时候并没有让我们去实例化一个jquery对象实例，然后再调用其自定义的方法，而是可以直接使用诸如&lt;code&gt;jQuery&lt;/code&gt;或着更常见的&lt;code&gt;$()&lt;/code&gt;方法。下面我们自己探索下它是如何实现的。&lt;br&gt;
     
     </summary>
     
