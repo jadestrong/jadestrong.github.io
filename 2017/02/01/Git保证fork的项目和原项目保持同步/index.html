@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="JadeStrong"><meta name="description" content="问题描述：当我们在github上fork出一个项目后，如果原有的项目更新了，怎样保持我们fork出的项目可以和原项目保持同步呢？在Fork的代码库中添加上游代码库的remote源，该操作只需要执行一次，gitremoteaddupstreamhttps://githu"><meta name="keywords" content=""><title>Git保证fork的项目和原项目保持同步 · JadeStrong' Blog</title><link rel="icon" href="/favicon.ico"><link rel="canonical" href="http://jadestrong.com/2017/02/01/Git保证fork的项目和原项目保持同步/"><link rel="alternate" href="/atom.xml" title="JadeStrong' Blog"><link rel="stylesheet" href="/fonts/iconfont/iconfont.css"><link rel="stylesheet" href="/css/style.css"><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?Your baidu Analytics ID";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Your Google Analytics ID', 'auto');
+ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">JadeStrong' Blog</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives/" target="_self">Archives</a></li><li class="nav-link"><a href="/tags/" target="_self">Tags</a></li><li class="nav-link"><a href="/about/" target="_self">About</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">Git保证fork的项目和原项目保持同步</h1><span class="post-time">Feb 1, 2017</span><div class="post-content"><p>问题描述：当我们在github上fork出一个项目后，如果原有的项目更新了，怎样保持我们fork出的项目可以和原项目保持同步呢？</p>
+<ol>
+<li>在Fork的代码库中添加上游代码库的remote源，该操作只需要执行一次，<code>git remote add upstream https://github.com/jadestrong/spacemacs-private.git</code>;</li>
+<li>将本地的修改commit；</li>
+<li>在每次<code>pull request</code>前做如下操作，即可以实现和上游版本库的同步。<br>3.1：<code>git remote update upstream</code>；<br>3.2：<code>git rebase upstream/{branch name}</code>;<br>需要注意的是在操作3.2之前，一定要将checkout到{branch name}到指定的branch，<code>git checkout develop</code>。</li>
+<li>Push代码到Github <code>git push</code>。</li>
+</ol>
+</div></article><div class="tags"></div><div class="paginator"><a href="/2016/11/04/svn命令的基本使用/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div id="disqus_thread"></div></section><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'http://jadestrong.com/2017/02/01/Git保证fork的项目和原项目保持同步/';
+    this.page.identifier = '2017/02/01/Git保证fork的项目和原项目保持同步/';
+    this.page.title = 'Git保证fork的项目和原项目保持同步';
+};
+(function() {
+var d = document, s = d.createElement('script');
+
+s.src = '//Your disqus ID.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();</script></section><footer><div class="copyright"><p class="power">Powered by <a href="https://hexo.io/">Hexo</a> and Theme by <a href="https://github.com/ahonn/hexo-theme-even"> Even</a></p><p class="since">&copy;2017<span class="heart"><i class="iconfont icon-heart"></i></span><span class="author">JadeStrong</span></p></div><label id="back2top"><i class="iconfont icon-up"></i></label></footer></div><script src="/js/zepto.min.js"></script><script src="/js/theme.js"></script></body></html>
